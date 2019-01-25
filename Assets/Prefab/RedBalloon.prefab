@@ -89,8 +89,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1.2
   hp: 1
-  score: 10
+  score: 15
+  coins: 1
   ready: 0
+  isRainbow: 0
+  isBomb: 0
+  isTnt: 0
+  cost: 0
 --- !u!212 &212999838102666982
 SpriteRenderer:
   m_ObjectHideFlags: 1

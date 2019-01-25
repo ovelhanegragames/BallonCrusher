@@ -11,9 +11,12 @@ public class GameManager : MonoBehaviour {
     public List<AudioClip> listOfPopSounds = new List<AudioClip>();
     public GameObject scoreLabel;
     public GameObject levelLabel;
+    public GameObject coinsLabel;
     public GameObject brick;
     public GameObject gameOver;
+    public GameObject tntExplosion;
     int score = 0;
+    int coins = 0;
     int endOfTheGame = 16;
     int numberOffBalloons;
     public float levelSpeed = 1;
@@ -34,6 +37,9 @@ public class GameManager : MonoBehaviour {
 
         scoreLabel.GetComponent<Text>().text = "SCORE: " + score;
         levelLabel.GetComponent<Text>().text = "LEVEL: " + level;
+        coinsLabel.GetComponent<Text>().text = "COINS: " + coins;
+
+        if (coins <= 0) coins = 0;
 
         if (gameState.Equals("play"))
         {
@@ -78,6 +84,26 @@ public class GameManager : MonoBehaviour {
     public void AddScore(int sc)
     {
         score += sc;
+    }
+
+    public void AddCoins(int c)
+    {
+        coins += c;
+    }
+
+    public void RemoveCoins(int c)
+    {
+        coins -= c;
+    }
+
+    public int GetCoins()
+    {
+        return coins;
+    }
+
+    public void NoCoins()
+    {
+        coinsLabel.GetComponent<Animator>().SetTrigger("blink");
     }
 
     public void PopBalloon()

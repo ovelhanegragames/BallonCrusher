@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614998048889170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.293095, y: -2.7725203, z: 0}
+  m_LocalPosition: {x: -1.4287672, y: -3.604767, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,9 +55,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.7}
+  m_Offset: {x: 0, y: 0.499181}
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.900819
 --- !u!95 &95209287526140564
 Animator:
   serializedVersion: 3
@@ -90,7 +90,11 @@ MonoBehaviour:
   speed: 1
   hp: 1
   score: 10
+  coins: 0
   ready: 0
+  isRainbow: 0
+  isBomb: 0
+  isTnt: 0
 --- !u!212 &212134559213776628
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -127,7 +131,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 86b9f442d5b5b5744bf3780b502e505d, type: 3}
-  m_Color: {r: 1, g: 0.21963641, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

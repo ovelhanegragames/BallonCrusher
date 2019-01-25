@@ -23,5 +23,9 @@ public class Brick : MonoBehaviour {
             GameObject gm = GameObject.Find("Manager");
             gm.GetComponent<GameManager>().gameState = "gameover";
         }
+        if(collision.gameObject.tag == "tnt")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

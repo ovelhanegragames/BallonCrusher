@@ -8,6 +8,7 @@ TagManager:
   - pop
   - wall
   - brick
+  - tnt
   layers:
   - Default
   - TransparentFX

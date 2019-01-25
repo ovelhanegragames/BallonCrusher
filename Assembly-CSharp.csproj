@@ -64,6 +64,7 @@
      <Compile Include="Assets\Scripts\Music.cs" />
      <Compile Include="Assets\Scripts\PopBalloon.cs" />
      <Compile Include="Assets\Scripts\Settings.cs" />
+     <Compile Include="Assets\Scripts\SkillManager.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/Projetos/_GIT/BallonCrusher/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

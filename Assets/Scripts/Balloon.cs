@@ -7,8 +7,15 @@ public class Balloon : MonoBehaviour {
     public float speed;
     public int hp;
     public int score;
+    public int coins;
     public bool ready = false;
     bool active = true;
+    public bool isRainbow;// explode todos os balões da cor escolhida
+    public bool isBomb;// bomba que atrapalha o jogador
+    public bool isTnt; // skill
+    bool colorControl = false;
+    int hpAux;
+    public int cost;
     GameObject gm;
     GameObject mc;
     Animator anim;
@@ -24,32 +31,69 @@ public class Balloon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (hp == 3)
-        {
-            GetComponent<SpriteRenderer>().color = new Color32(0, 184, 255, 255);
-        }
-        else if (hp == 2) 
-        {
-            GetComponent<SpriteRenderer>().color = new Color32(9, 255, 0, 255);
-        }
-        else if(hp == 1)
-        {
-            GetComponent<SpriteRenderer>().color = new Color32(255, 0, 237, 255);
-        }
 
-        if (gm.GetComponent<GameManager>().gameState.Equals("play"))
+        if (isTnt || isBomb)
         {
-            //velocidade incrementa conforme level
-            transform.Translate(Vector2.up * speed * gm.GetComponent<GameManager>().levelSpeed * Time.deltaTime);
+
+        }
+        else
+        {
+            if (hp == 3)
+            {
+                GetComponent<SpriteRenderer>().color = new Color32(0, 184, 255, 255);
+            }
+            else if (hp == 2)
+            {
+                GetComponent<SpriteRenderer>().color = new Color32(9, 255, 0, 255);
+            }
+            else if (hp == 1)
+            {
+                GetComponent<SpriteRenderer>().color = new Color32(255, 0, 237, 255);
+            }
+        }
+        
+        if (isRainbow)
+        {
+            if (gm.GetComponent<GameManager>().gameState.Equals("play"))
+            {
+                transform.Translate(Vector2.up * speed * Time.deltaTime);
+                if (!colorControl)
+                {
+                    StartCoroutine(ChangeColor());
+                }
+                if (hp <= 0)
+                {
+                    speed = 0;
+                    DestroySameColor();
+                    PopBalloon();
+
+                }
+            }
+        }
+        else if (isTnt)
+        {
+            transform.Translate(Vector2.up * speed * Time.deltaTime);
 
             if (hp <= 0)
             {
                 speed = 0;
                 PopBalloon();
-                
             }
         }
+        else
+        {
+            if (gm.GetComponent<GameManager>().gameState.Equals("play"))
+            {
+                //velocidade incrementa conforme level
+                transform.Translate(Vector2.up * speed * gm.GetComponent<GameManager>().levelSpeed * Time.deltaTime);
 
+                if (hp <= 0)
+                {
+                    speed = 0;
+                    PopBalloon();
+                }
+            }
+        }
     }
 
     public void PopBalloon()
@@ -62,30 +106,80 @@ public class Balloon : MonoBehaviour {
         if (active)
         {
             gm.SendMessage("AddScore", score);
+            gm.SendMessage("AddCoins", coins);
             active = false;
         }
         mc.SendMessage("PlayPopSound");
         Destroy(this.gameObject);
     }
 
+    void DestroySameColor()
+    {
+        GameObject[] balloons = GameObject.FindGameObjectsWithTag("balloon");
+        foreach(GameObject bl in balloons)
+        {
+            if(bl.GetComponent<Balloon>().hp == hpAux)
+            {
+                bl.GetComponent<Balloon>().hp = 0;
+            }
+        }
+    }
+
+    void TntExplosion()
+    {
+        Instantiate(gm.GetComponent<GameManager>().tntExplosion, transform.position, transform.rotation);
+        StartCoroutine(TntTime());
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "pop" && ready)
+        if (isRainbow)
         {
-            Destroy(collision.gameObject);
-            hp -= 1;
-        }
-        if((collision.gameObject.tag == "wall" || collision.gameObject.tag == "brick") && ready)
-        {
-            hp = 0;
-            if (active)
+            if (collision.gameObject.tag == "pop" && ready)
             {
-                //Instantiate(gm.GetComponent<GameManager>().brick, transform.position, transform.rotation);
-                Instantiate(gm.GetComponent<GameManager>().brick, new Vector3(transform.position.x,transform.position.y + .5f ,transform.position.z),transform.rotation);
-                active = false;
+                Destroy(collision.gameObject);
+                DestroySameColor();
+                hp = 0;
             }
-
         }
+        else if (isTnt)
+        {
+            if (collision.gameObject.tag == "pop" && ready)
+            {
+                Destroy(collision.gameObject);
+                TntExplosion();
+                hp = 0;
+                //TO DO
+                //explosao dos blocos
+            }
+            if (collision.gameObject.tag == "brick" && ready)
+            {
+                hp = 0;
+                TntExplosion();
+                //TO DO
+                //explosao dos blocos
+            }
+        }
+        else
+        {
+            if (collision.gameObject.tag == "pop" && ready)
+            {
+                Destroy(collision.gameObject);
+                hp -= 1;
+            }
+            if ((collision.gameObject.tag == "wall" || collision.gameObject.tag == "brick") && ready)
+            {
+                hp = 0;
+                if (active)
+                {
+                    //Instantiate(gm.GetComponent<GameManager>().brick, transform.position, transform.rotation);
+                    Instantiate(gm.GetComponent<GameManager>().brick, new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z), transform.rotation);
+                    active = false;
+                }
+
+            }
+        }
+        
     }
 
     void OnBecameInvisible()
@@ -102,6 +196,23 @@ public class Balloon : MonoBehaviour {
     void OnBecameVisible()
     {
         ready = true;
+    }
+
+    IEnumerator ChangeColor()
+    {
+        hpAux = hp;
+        colorControl = true;
+        yield return new WaitForSeconds(1f);
+        hp += 1;
+        if (hp > 3) hp = 1;
+        colorControl = false;
+    }
+
+    IEnumerator TntTime()
+    {
+        yield return new WaitForSeconds(0.2f);
+        GameObject obj = GameObject.FindGameObjectWithTag("tnt");
+        Destroy(obj.gameObject);
     }
 
     
