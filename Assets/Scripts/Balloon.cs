@@ -70,7 +70,7 @@ public class Balloon : MonoBehaviour {
                 }
             }
         }
-        else if (isTnt)
+        else if (isTnt || isBomb)
         {
             transform.Translate(Vector2.up * speed * Time.deltaTime);
 
@@ -127,8 +127,17 @@ public class Balloon : MonoBehaviour {
 
     void TntExplosion()
     {
+        //TO DO
+        //explosao dos blocos
         Instantiate(gm.GetComponent<GameManager>().tntExplosion, transform.position, transform.rotation);
         StartCoroutine(TntTime());
+    }
+
+    void BombExplosion()
+    {
+        //TO DO
+        //exposao e criaçao dos blocos
+        Instantiate(gm.GetComponent<GameManager>().brick, transform.position, transform.rotation);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -149,15 +158,20 @@ public class Balloon : MonoBehaviour {
                 Destroy(collision.gameObject);
                 TntExplosion();
                 hp = 0;
-                //TO DO
-                //explosao dos blocos
             }
             if (collision.gameObject.tag == "brick" && ready)
             {
                 hp = 0;
                 TntExplosion();
-                //TO DO
-                //explosao dos blocos
+            }
+        }
+        else if(isBomb)
+        {
+            if (collision.gameObject.tag == "pop" && ready)
+            {
+                Destroy(collision.gameObject);
+                BombExplosion();
+                hp = 0;
             }
         }
         else

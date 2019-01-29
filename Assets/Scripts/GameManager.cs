@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
     public GameObject brick;
     public GameObject gameOver;
     public GameObject tntExplosion;
+    public GameObject bombBalloon;
     int score = 0;
     int coins = 0;
     int endOfTheGame = 16;
@@ -25,6 +26,8 @@ public class GameManager : MonoBehaviour {
     public float sleep = 4;
     bool ready = true;
     public string gameState = "play";
+    int bombBalloonCount = 0;
+    public int bombBalloonRef;
 
 	// Use this for initialization
 	void Start () {
@@ -46,14 +49,21 @@ public class GameManager : MonoBehaviour {
             //verifica final de level e prepara para o proximo level
             if (endOfTheGame <= 0)
             {
-                levelSpeed += .2f;
-                levelSleep += .15f;
+                level += 1;
+                if(level%2 == 0)
+                {
+                    levelSpeed += .2f;
+                }
+                else
+                {
+                    levelSleep += .15f;
+                }
+            
                 if(levelSleep < 2)
                 {
                     levelSleep = 2;
                 }
-                level += 1;
-                endOfTheGame = (numberOffBalloons + 6);
+                endOfTheGame = (numberOffBalloons + 4);
                 numberOffBalloons = endOfTheGame;
             }
 
@@ -66,6 +76,7 @@ public class GameManager : MonoBehaviour {
                 {
                     listOfGenerators[indice].SendMessage("MakeBalloon");
                     PopBalloon();
+                    MakeBombBalloon();
                 }
                 else
                 {
@@ -80,6 +91,19 @@ public class GameManager : MonoBehaviour {
             gameOver.SetActive(true);
         }
 	}
+
+    //seleciona um gerador para criar um bombBalloon a cada @14 baloes gerados.
+    void MakeBombBalloon()
+    {
+        bombBalloonCount++;
+        if(bombBalloonCount >= bombBalloonRef)
+        {
+            bombBalloonCount = 0;
+            GameObject gn = listOfGenerators[Mathf.RoundToInt(Random.Range(0, listOfGenerators.Count))];
+            gn.GetComponent<Generator>().ready = true;
+            Instantiate(bombBalloon, gn.transform.position, gn.transform.rotation);
+        }
+    }
 
     public void AddScore(int sc)
     {
