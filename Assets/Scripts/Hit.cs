@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hit : MonoBehaviour {
 
     float timer = 0;
+    public bool isActive;
 
 	// Use this for initialization
 	void Start () {
@@ -19,4 +20,12 @@ public class Hit : MonoBehaviour {
             Destroy(this.gameObject);
         }
 	}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "redZone")
+        {
+            isActive = true;
+        }
+    }
 }

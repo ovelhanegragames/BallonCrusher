@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour {
 
-
+    Animator anim;
 
 	// Use this for initialization
 	void Start () {
-		
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -25,7 +25,17 @@ public class Brick : MonoBehaviour {
         }
         if(collision.gameObject.tag == "tnt")
         {
-            Destroy(this.gameObject);
+            EndBrick();
         }
+    }
+
+    public void EndBrick()
+    {
+        anim.SetTrigger("break");
+    }
+
+    public void DestroyBrick()
+    {
+        Destroy(this.gameObject);
     }
 }

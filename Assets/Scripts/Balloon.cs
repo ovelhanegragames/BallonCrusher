@@ -144,7 +144,7 @@ public class Balloon : MonoBehaviour {
     {
         if (isRainbow)
         {
-            if (collision.gameObject.tag == "pop" && ready)
+            if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
             {
                 Destroy(collision.gameObject);
                 DestroySameColor();
@@ -153,7 +153,7 @@ public class Balloon : MonoBehaviour {
         }
         else if (isTnt)
         {
-            if (collision.gameObject.tag == "pop" && ready)
+            if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
             {
                 Destroy(collision.gameObject);
                 TntExplosion();
@@ -167,7 +167,7 @@ public class Balloon : MonoBehaviour {
         }
         else if(isBomb)
         {
-            if (collision.gameObject.tag == "pop" && ready)
+            if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
             {
                 Destroy(collision.gameObject);
                 BombExplosion();
@@ -176,7 +176,7 @@ public class Balloon : MonoBehaviour {
         }
         else
         {
-            if (collision.gameObject.tag == "pop" && ready)
+            if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
             {
                 Destroy(collision.gameObject);
                 hp -= 1;

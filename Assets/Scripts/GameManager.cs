@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
     public GameObject bombBalloon;
     int score = 0;
     int coins = 0;
-    int endOfTheGame = 16;
+    public int endOfTheGame = 16;
     int numberOffBalloons;
     public float levelSpeed = 1;
     public float levelSleep = 0;
@@ -49,22 +49,7 @@ public class GameManager : MonoBehaviour {
             //verifica final de level e prepara para o proximo level
             if (endOfTheGame <= 0)
             {
-                level += 1;
-                if(level%2 == 0)
-                {
-                    levelSpeed += .2f;
-                }
-                else
-                {
-                    levelSleep += .15f;
-                }
-            
-                if(levelSleep < 2)
-                {
-                    levelSleep = 2;
-                }
-                endOfTheGame = (numberOffBalloons + 4);
-                numberOffBalloons = endOfTheGame;
+                LevelUp();
             }
 
             //escolhe um gerador
@@ -92,6 +77,25 @@ public class GameManager : MonoBehaviour {
         }
 	}
 
+    private void LevelUp()
+    {
+        level += 1;
+        if (level % 2 == 0)
+        {
+            levelSpeed += .3f;
+        }
+        else
+        {
+            levelSleep += .2f;
+        }
+
+        if (levelSleep > 2)
+        {
+            levelSleep = 2;
+        }
+        endOfTheGame = (numberOffBalloons + 4);
+        numberOffBalloons = endOfTheGame;
+    }
     //seleciona um gerador para criar um bombBalloon a cada @14 baloes gerados.
     void MakeBombBalloon()
     {
