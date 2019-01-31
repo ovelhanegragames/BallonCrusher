@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Balloon : MonoBehaviour {
 
+    public GameObject star;
     public float speed;
     public int hp;
     public int score;
@@ -20,6 +21,8 @@ public class Balloon : MonoBehaviour {
     GameObject mc;
     Animator anim;
     Vector2 movement;
+
+   
 
 
 	// Use this for initialization
@@ -66,6 +69,7 @@ public class Balloon : MonoBehaviour {
                     speed = 0;
                     DestroySameColor();
                     PopBalloon();
+                   
 
                 }
             }
@@ -91,6 +95,7 @@ public class Balloon : MonoBehaviour {
                 {
                     speed = 0;
                     PopBalloon();
+                   
                 }
             }
         }
@@ -99,6 +104,8 @@ public class Balloon : MonoBehaviour {
     public void PopBalloon()
     {
         anim.SetTrigger("pop");
+        Instantiate(star, GetComponent<Transform>().transform.position, transform.rotation);
+        Destroy(star, 0.5f);
     }
 
     public void DestroyBalloon()

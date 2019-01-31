@@ -87,6 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba5ede6ccab690f42b06736e76e7d292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  star: {fileID: 1799383133412710, guid: c51ddc495174a774b9f76388ff3225df, type: 2}
   speed: 1.9
   hp: 2
   score: 30

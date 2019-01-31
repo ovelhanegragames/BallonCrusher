@@ -64,6 +64,7 @@
     <Compile Include="Assets\NokobotUIPack\Demo\Scripts\GoToNextScene.cs" />
     <Compile Include="Assets\Scripts\Balloon.cs" />
     <Compile Include="Assets\Scripts\Brick.cs" />
+    <Compile Include="Assets\Scripts\DestroiObjeto.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Generator.cs" />
     <Compile Include="Assets\Scripts\Hit.cs" />

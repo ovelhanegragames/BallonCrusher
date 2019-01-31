@@ -12,8 +12,7 @@ public class PopBalloon : MonoBehaviour {
     AudioClip popSound;
     float volume;
 
-    public GameObject puff;
-
+    
     // Use this for initialization
     void Start () {
         gm = GameObject.Find("Manager");
@@ -30,8 +29,7 @@ public class PopBalloon : MonoBehaviour {
             {
                 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Instantiate(pop, mousePosition, transform.rotation);
-                Instantiate(puff, mousePosition, transform.rotation);
-                Destroy(puff, .5f);
+                
             }
         }
 
