@@ -14,11 +14,13 @@ public class Balloon : MonoBehaviour {
     public bool isRainbow;// explode todos os balões da cor escolhida
     public bool isBomb;// bomba que atrapalha o jogador
     public bool isTnt; // skill
+    public bool isNormal;
     bool colorControl = false;
     int hpAux;
     public int cost;
     GameObject gm;
     GameObject mc;
+    GameObject wt;
     Animator anim;
     Vector2 movement;
 
@@ -30,6 +32,7 @@ public class Balloon : MonoBehaviour {
         anim = GetComponent<Animator>();
         gm = GameObject.Find("Manager");
         mc = GameObject.Find("Main Camera");
+        wt = GameObject.Find("Watcher");
 	}
 	
 	// Update is called once per frame
@@ -114,6 +117,7 @@ public class Balloon : MonoBehaviour {
             gm.SendMessage("AddScore", score);
             gm.SendMessage("AddCoins", coins);
             active = false;
+            wt.SendMessage("AddScoreCombo", score);
         }
         mc.SendMessage("PlayPopSound");
         Destroy(this.gameObject);
@@ -171,7 +175,7 @@ public class Balloon : MonoBehaviour {
                 TntExplosion();
             }
         }
-        else if(isBomb)
+        else if (isBomb)
         {
             if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
             {
@@ -180,13 +184,17 @@ public class Balloon : MonoBehaviour {
                 hp = 0;
             }
         }
-        else
+        else if (isNormal)
         {
             if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
             {
+                GameObject hit = GameObject.FindGameObjectWithTag("pop");
+                Instantiate(gm.GetComponent<GameManager>().star, hit.transform.position, hit.transform.rotation);
                 Destroy(collision.gameObject);
                 hp -= 1;
+                if (hp == 0) wt.SendMessage("AddComboCount");
             }
+
             if ((collision.gameObject.tag == "wall" || collision.gameObject.tag == "brick") && ready)
             {
                 hp = 0;
@@ -196,10 +204,12 @@ public class Balloon : MonoBehaviour {
                     Instantiate(gm.GetComponent<GameManager>().brick, new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z), transform.rotation);
                     active = false;
                 }
-
             }
         }
-        
+        else
+        {
+
+        }
     }
 
     void OnBecameInvisible()

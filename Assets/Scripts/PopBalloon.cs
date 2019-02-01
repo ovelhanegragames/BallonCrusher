@@ -8,16 +8,18 @@ public class PopBalloon : MonoBehaviour {
     Vector2 mousePosition;
     GameObject gm;
     GameObject st;
+    GameObject wt;
     int indice;
     AudioClip popSound;
     float volume;
 
-    public GameObject star;
+    //public GameObject star;
 
     // Use this for initialization
     void Start () {
         gm = GameObject.Find("Manager");
         st = GameObject.Find("Settings");
+        wt = GameObject.Find("Watcher");
 	}
 	
 	// Update is called once per frame
@@ -30,7 +32,7 @@ public class PopBalloon : MonoBehaviour {
             {
                 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 Instantiate(pop, mousePosition, transform.rotation);
-                Instantiate(star, mousePosition, transform.rotation);
+                //Instantiate(star, mousePosition, transform.rotation);
                
             }
         }
@@ -44,6 +46,18 @@ public class PopBalloon : MonoBehaviour {
         indice = Mathf.RoundToInt(Random.Range(0, gm.GetComponent<GameManager>().listOfPopSounds.Count));
         popSound = gm.GetComponent<GameManager>().listOfPopSounds[indice];
         GetComponent<AudioSource>().PlayOneShot(popSound,volume);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "balloon")
+        {
+
+        }
+        else
+        {
+            wt.SendMessage("BonusScoreCombo");
+        }
     }
 
 }
