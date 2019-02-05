@@ -10,15 +10,18 @@ public class Combo : MonoBehaviour {
     public bool comboIsActive;
     public float scoreCombo;
     float bonus;
+    public int score;
     int comboCount;
-
+    public GameObject bonusScore;
     public GameObject comboGui;
     GameObject gm;
+
 
 	// Use this for initialization
 	void Start () {
         gm = GameObject.Find("Manager");
         comboGui.SetActive(false);
+        bonusScore.SetActive(false);
         comboTimer = comboTimerRef;
 	}
 	
@@ -53,9 +56,9 @@ public class Combo : MonoBehaviour {
 
 	}
 
-    public void AddScoreCombo(int score)
+    public void AddScoreCombo(int sc)
     {
-        if(comboIsActive) scoreCombo += score;
+        if(comboIsActive) scoreCombo += sc;
 
     }
 
@@ -96,13 +99,28 @@ public class Combo : MonoBehaviour {
         {
             bonus = 1f;
         }
-        gm.GetComponent<GameManager>().AddScore(Mathf.RoundToInt(scoreCombo *= bonus));
-        ResetCombo();
+        score = (Mathf.RoundToInt(scoreCombo *= bonus));
+        StartBonusAnimation();
+
     }
 
     public void StartCombo()
     {
         comboIsActive = true;
         comboGui.SetActive(true);
+    }
+
+    public void StartBonusAnimation()
+    {
+        bonusScore.SetActive(true);
+        bonusScore.GetComponent<Text>().text = "+" + score.ToString();
+        bonusScore.GetComponent<Animator>().SetTrigger("start");
+    }
+
+    public void GiveBonusToPlayer()
+    {
+        bonusScore.SetActive(false);
+        gm.GetComponent<GameManager>().AddScore(score);
+        ResetCombo();
     }
 }

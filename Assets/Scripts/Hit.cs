@@ -6,10 +6,11 @@ public class Hit : MonoBehaviour {
 
     float timer = 0;
     public bool isActive;
+    GameObject wt;
 
 	// Use this for initialization
 	void Start () {
-		
+        wt = GameObject.Find("Watcher");
 	}
 	
 	// Update is called once per frame
@@ -17,6 +18,10 @@ public class Hit : MonoBehaviour {
         timer += Time.deltaTime;
         if(timer >= .15f)
         {
+            if (wt.GetComponent<Combo>().comboIsActive)
+            {
+                wt.SendMessage("BonusScoreCombo");
+            }
             Destroy(this.gameObject);
         }
 	}
