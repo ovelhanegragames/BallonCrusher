@@ -45,16 +45,18 @@ public class Combo : MonoBehaviour {
         }
         else
         {
-            if(comboCount == 1)
+
+        }
+
+        if (comboCount == 1)
             comboTimer -= Time.deltaTime;
-            if (comboTimer <= 0)
-            {
-                ResetCombo();
-            }
+        if (comboTimer <= 0)
+        {
+            ResetCombo();
         }
 
 
-	}
+    }
 
     public void AddScoreCombo(int sc)
     {
@@ -119,8 +121,9 @@ public class Combo : MonoBehaviour {
 
     public void GiveBonusToPlayer()
     {
-        bonusScore.SetActive(false);
+        print(score.ToString());
         gm.GetComponent<GameManager>().AddScore(score);
+        bonusScore.SetActive(false);
         ResetCombo();
     }
 }
