@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - greeZone
+  - wall
+  - redZone
+  - balloon
+  - brick
+  - pop
+  - tnt
+  - caixa
   layers:
   - Default
   - TransparentFX
