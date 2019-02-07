@@ -18,7 +18,6 @@ public class Bonus : MonoBehaviour {
 
     public void GiveTheBonus()
     {
-        print("terminou animaçaão");
         combo.SendMessage("GiveBonusToPlayer");
     }
 }

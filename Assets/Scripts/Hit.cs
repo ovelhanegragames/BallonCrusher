@@ -20,7 +20,7 @@ public class Hit : MonoBehaviour {
         {
             if (wt.GetComponent<Combo>().comboIsActive)
             {
-                //wt.SendMessage("BonusScoreCombo");
+                wt.SendMessage("BonusScoreCombo");
             }
             Destroy(this.gameObject);
         }

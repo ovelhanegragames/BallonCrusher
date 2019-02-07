@@ -67,6 +67,7 @@ public class Combo : MonoBehaviour {
     public void AddComboCount()
     {
         comboCount++;
+        comboGui.transform.GetChild(0).gameObject.GetComponent<Animator>().SetTrigger("up");
         if (comboIsActive)
         {
             comboTimer = comboTimerRef;
@@ -121,7 +122,6 @@ public class Combo : MonoBehaviour {
 
     public void GiveBonusToPlayer()
     {
-        print(score.ToString());
         gm.GetComponent<GameManager>().AddScore(score);
         bonusScore.SetActive(false);
         ResetCombo();
