@@ -1413,6 +1413,26 @@ Prefab:
       propertyPath: m_SizeDelta.x
       value: 46.52
       objectReference: {fileID: 0}
+    - target: {fileID: 224697599434423886, guid: e47fcb443dbcc7f448aee9599e496c25,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224697599434423886, guid: e47fcb443dbcc7f448aee9599e496c25,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 55.59
+      objectReference: {fileID: 0}
+    - target: {fileID: 224697599434423886, guid: e47fcb443dbcc7f448aee9599e496c25,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224697599434423886, guid: e47fcb443dbcc7f448aee9599e496c25,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 81.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e47fcb443dbcc7f448aee9599e496c25, type: 2}
   m_IsPrefabAsset: 0
@@ -1641,8 +1661,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 707516089}
-        m_MethodName: RestarLevel
+      - m_Target: {fileID: 1367333136}
+        m_MethodName: GoToHome
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1651,7 +1671,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &641907014
@@ -3113,8 +3133,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 311.30078, y: -72.485}
-  m_SizeDelta: {x: 40.85, y: 40.38}
+  m_AnchoredPosition: {x: 302.18, y: -74.2}
+  m_SizeDelta: {x: 70.05, y: 73.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1367333134
 MonoBehaviour:
@@ -3135,7 +3155,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a245d8493932d74478274dc710cb5589, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 34a6c3724ca0c5e45b8a9d7559318605, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
