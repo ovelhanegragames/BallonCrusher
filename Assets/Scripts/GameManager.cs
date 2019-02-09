@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour {
     public GameObject tntExplosion;
     public GameObject bombBalloon;
     public GameObject star;
-    int score = 0;
+    public int score = 0;
     int coins = 0;
     public int endOfTheGame = 16;
     int numberOffBalloons;

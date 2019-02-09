@@ -12,9 +12,11 @@ public class Combo : MonoBehaviour {
     float bonus;
     public int score;
     int comboCount;
+    public int comboCountMax = 0;
     public GameObject bonusScore;
     public GameObject comboGui;
     GameObject gm;
+    
 
 
 	// Use this for initialization
@@ -79,6 +81,7 @@ public class Combo : MonoBehaviour {
     {
         comboCount = 0;
         scoreCombo = 0;
+        score = 0;
         comboIsActive = false;
         comboTimer = comboTimerRef;
         comboGui.SetActive(false);
@@ -102,6 +105,10 @@ public class Combo : MonoBehaviour {
         {
             bonus = 1f;
         }
+
+        //grava numero maximo de combos 
+        if (comboCount > comboCountMax) comboCountMax = comboCount;
+
         score = (Mathf.RoundToInt(scoreCombo *= bonus));
         StartBonusAnimation();
 
