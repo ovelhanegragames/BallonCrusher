@@ -44,10 +44,10 @@ public class DB_Rank : MonoBehaviour {
         listOfLevel.Add("q.level");
         listOfLevel.Add("qq.level");
 
-        playerList.Add(new Player("Luis", 800, 5, 3));
-        playerList.Add(new Player("Felipe", 600, 5, 3));
+        //playerList.Add(new Player("Luis", 800, 5, 3));
+        //playerList.Add(new Player("Felipe", 600, 5, 3));
 
-        LoadList();
+        //LoadList();
 
     }
 

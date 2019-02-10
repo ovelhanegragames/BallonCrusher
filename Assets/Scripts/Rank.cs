@@ -32,9 +32,9 @@ public class Rank : MonoBehaviour {
     //cria um objeto do tipo player com os dados da respectiva partida e adiciona na lista de rank
     public void GetPlayerName()
     {
-        dbr.GetComponent<DB_Rank>().playerList.Add(MakePlayer());
-
-        PrintPlayerInfos(dbr.GetComponent<DB_Rank>().ArrangePlayerRank());
+        //dbr.GetComponent<DB_Rank>().playerList.Add(MakePlayer());
+        //PrintPlayerInfos(dbr.GetComponent<DB_Rank>().ArrangePlayerRank());
+        PrintPlayerInfos(MakePlayer());
 
     }
 
@@ -55,7 +55,7 @@ public class Rank : MonoBehaviour {
         playerName.SetActive(false);
         playerStatistics.SetActive(true);
         playerStatistics.transform.GetChild(0).gameObject.GetComponent<Text>().text =
-            "Position:........" + currentPlayer.Position + "\n" +
+            //"Position:........" + currentPlayer.Position + "\n" +
             "Score:..........." + currentPlayer.Score.ToString() + "\n" +
             "Level:............" + currentPlayer.MaxLevel.ToString() + "\n" +
             "Combo:........" + currentPlayer.NumberMaxCombo.ToString();
