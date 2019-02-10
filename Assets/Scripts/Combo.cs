@@ -38,7 +38,6 @@ public class Combo : MonoBehaviour {
         if (comboIsActive)
         {
             comboGui.transform.GetChild(0).gameObject.GetComponent<Text>().text = comboCount.ToString();
-
             comboTimer -= Time.deltaTime;
             if(comboTimer <= 0)
             {

@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour {
     private void LevelUp()
     {
         level += 1;
-        levelSpeed += .2f;
+        levelSpeed += .35f;
         if(level > 1)
         {
             levelSleep += .2f;

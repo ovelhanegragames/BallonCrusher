@@ -115,7 +115,7 @@ public class Balloon : MonoBehaviour {
         if (active)
         {
             gm.SendMessage("AddScore", score);
-            gm.SendMessage("AddCoins", coins);
+            if(wt.GetComponent<Combo>().comboIsActive) gm.SendMessage("AddCoins", coins);
             active = false;
             wt.SendMessage("AddScoreCombo", score);
         }

@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba5ede6ccab690f42b06736e76e7d292, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.4
+  speed: 4
   hp: 3
   score: 50
   coins: 3

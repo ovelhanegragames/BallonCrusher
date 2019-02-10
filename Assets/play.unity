@@ -440,34 +440,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1847090833122886, guid: 4f7d9a9265fdd404c939e6acb4ffa24c,
     type: 2}
   m_PrefabInternal: {fileID: 140289256}
---- !u!1 &144275440
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 144275441}
-  m_Layer: 0
-  m_Name: ScreenRank
-  m_TagString: Untagged
-  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &144275441
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 144275440}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 700, y: 200, z: -2.8125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &241382250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1948,10 +1920,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboTimer: 0
-  comboTimerRef: 2
+  comboTimerRef: 3
   comboIsActive: 0
   scoreCombo: 0
   score: 0
+  comboCountMax: 0
   bonusScore: {fileID: 1891034437}
   comboGui: {fileID: 1837601512}
 --- !u!4 &676501329
@@ -2098,11 +2071,12 @@ MonoBehaviour:
   bombBalloon: {fileID: 1932866250488702, guid: c899ea8bb7c9c1441a6cdd2837882ea7,
     type: 2}
   star: {fileID: 1799383133412710, guid: c51ddc495174a774b9f76388ff3225df, type: 2}
-  endOfTheGame: 16
+  score: 0
+  endOfTheGame: 10
   levelSpeed: 1
   levelSleep: 0
   level: 0
-  sleep: 3
+  sleep: 2
   gameState: play
   bombBalloonRef: 14
 --- !u!4 &707516090
@@ -4562,34 +4536,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 811837533ae56e0488f9e815867143c1, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1807951665
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1807951666}
-  m_Layer: 0
-  m_Name: Rank
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1807951666
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1807951665}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.3028485, y: -0.42024186, z: 2.0078125}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1837601512
 GameObject:
   m_ObjectHideFlags: 0

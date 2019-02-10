@@ -7,10 +7,11 @@ public class Rank : MonoBehaviour {
 
     public GameObject playerName;
     public GameObject playerStatistics;
-    public List<Player> playerList = new List<Player>();
+    
     Player player;
     GameObject gm;
     GameObject cb;
+    GameObject dbr;
 
 
     // Use this for initialization
@@ -19,9 +20,8 @@ public class Rank : MonoBehaviour {
         playerStatistics.SetActive(false);
         gm = GameObject.Find("Manager");
         cb = GameObject.Find("Watcher");
+        dbr = GameObject.Find("Rank");
 
-        playerList.Add(new Player("nome", 500, 5, 3));
-        playerList.Add(new Player("nome", 600, 5, 3));
     }
 	
 	// Update is called once per frame
@@ -29,13 +29,13 @@ public class Rank : MonoBehaviour {
 		
 	}
 
+    //cria um objeto do tipo player com os dados da respectiva partida e adiciona na lista de rank
     public void GetPlayerName()
     {
-        playerList.Add(MakePlayer());
-        //Player pl = new Player();
-        //pl = ArrangePlayerRank();
-        //PrintPlayerInfos(pl);
-        PrintPlayerInfos(ArrangePlayerRank());
+        dbr.GetComponent<DB_Rank>().playerList.Add(MakePlayer());
+
+        PrintPlayerInfos(dbr.GetComponent<DB_Rank>().ArrangePlayerRank());
+
     }
 
     private Player MakePlayer()
@@ -49,50 +49,6 @@ public class Rank : MonoBehaviour {
         return pl;
     }
 
-    public Player ArrangePlayerRank()
-    {
-        Player pl = new Player();
-
-        if(playerList.Count == 1)
-        {
-            playerList[0].Position = 1;
-            return playerList[0];
-        }
-
-      //ordena maior score
-        for(int i = 1; i < playerList.Count; i++)
-        {
-            print("I:" + i.ToString());
-            for(int j = 0; j < playerList.Count - i; j++)
-            {
-                print("J:" + j.ToString());
-                if (playerList[j].Score < playerList[j+1].Score)
-                {
-                    print("score alterado");
-                    pl = playerList[j];
-                    playerList[j] = playerList[j+1];
-                    playerList[j+1] = pl;
-                }
-            }
-        }
-
-        //atribui a posição
-        for(int i = 1; i <= playerList.Count; i++)
-        {
-            playerList[i].Position = i;
-        }
-
-        //compara o nome do jogador da list para devolver seu rank
-        foreach(Player p in playerList)
-        {
-            if (p.Nome.Equals(playerName.transform.GetChild(2).gameObject.GetComponent<Text>().text))
-            {
-                return p;
-            }
-        }
-
-        return null;
-    }
 
     public void PrintPlayerInfos(Player currentPlayer)
     {
@@ -103,6 +59,19 @@ public class Rank : MonoBehaviour {
             "Score:..........." + currentPlayer.Score.ToString() + "\n" +
             "Level:............" + currentPlayer.MaxLevel.ToString() + "\n" +
             "Combo:........" + currentPlayer.NumberMaxCombo.ToString();
+    }
+
+    public Player SearchPlayer()
+    {
+        //compara o nome do jogador da list para devolver seu rank
+        foreach (Player p in dbr.GetComponent<DB_Rank>().playerList)
+        {
+            if (p.Nome.Equals(playerName.transform.GetChild(2).gameObject.GetComponent<Text>().text))
+            {
+                return p;
+            }
+        }
+        return null;
     }
 
 
