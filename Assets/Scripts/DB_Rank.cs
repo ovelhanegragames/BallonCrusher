@@ -5,12 +5,12 @@ using UnityEngine;
 public class DB_Rank : MonoBehaviour {
 
     public static DB_Rank instance = null;
-    public List<Player> playerList = new List<Player>();
+    //public List<Player> playerList = new List<Player>();
     List<string> listOfNames = new List<string>();
     List<string> listOfScore = new List<string>();
     List<string> listOfCombo = new List<string>();
     List<string> listOfLevel = new List<string>();
-
+    public Player[] playerList = new Player[6];
 
 
     void Awake()
@@ -44,10 +44,8 @@ public class DB_Rank : MonoBehaviour {
         listOfLevel.Add("q.level");
         listOfLevel.Add("qq.level");
 
-        //playerList.Add(new Player("Luis", 800, 5, 3));
-        //playerList.Add(new Player("Felipe", 600, 5, 3));
+        LoadList();
 
-        //LoadList();
 
     }
 
@@ -65,16 +63,10 @@ public class DB_Rank : MonoBehaviour {
     {
         Player pl = new Player();
 
-        if (playerList.Count == 1)
-        {
-            playerList[0].Position = 1;
-            return playerList[0];
-        }
-
         //ordena maior score
-        for (int i = 1; i < playerList.Count; i++)
+        for (int i = 1; i < playerList.Length; i++)
         {
-            for (int j = 0; j < playerList.Count - i; j++)
+            for (int j = 0; j < playerList.Length - i; j++)
             {
                 if (playerList[j].Score < playerList[j + 1].Score)
                 {
@@ -86,9 +78,9 @@ public class DB_Rank : MonoBehaviour {
         }
 
         //atribui a posição
-        for (int i = 1; i <= playerList.Count; i++)
+       for (int i = 1; i < playerList.Length; i++)
         {
-            playerList[i].Position = i;
+            playerList[i-1].Position = i;
         }
 
         return null;
@@ -99,7 +91,7 @@ public class DB_Rank : MonoBehaviour {
     {
         for(int i = 0; i < listOfNames.Count; i++)
         {
-            if (i >= playerList.Count) return true;
+            if (i >= playerList.Length) return true;
             PlayerPrefs.SetString(listOfNames[i],playerList[i].Nome);
             PlayerPrefs.SetInt(listOfScore[i], playerList[i].Score);
             PlayerPrefs.SetInt(listOfCombo[i], playerList[i].NumberMaxCombo);
@@ -112,15 +104,21 @@ public class DB_Rank : MonoBehaviour {
     {
         for(int i = 0; i < listOfNames.Count; i++)
         {
-            if (PlayerPrefs.GetString(listOfNames[i]) == null)
-            {
-                print("lista vazia");
-                return true;
-            }
-                
-            playerList.Add(new Player(PlayerPrefs.GetString(listOfNames[i]), PlayerPrefs.GetInt(listOfCombo[i]), PlayerPrefs.GetInt(listOfLevel[i]), PlayerPrefs.GetInt(listOfScore[i])));
+            playerList[i] = new Player(PlayerPrefs.GetString(listOfNames[i]), PlayerPrefs.GetInt(listOfCombo[i]), PlayerPrefs.GetInt(listOfLevel[i]), PlayerPrefs.GetInt(listOfScore[i]));
+            playerList[i].Position = i + 1;
         }
-        print("Lista Carregada");
+        //atribui a posição
+        for (int i = 1; i < playerList.Length; i++)
+        {
+            playerList[i - 1].Position = i;
+        }
+
+        for (int i = 0; i < playerList.Length - 1; i++)
+        {
+            print(playerList[i].Position.ToString());
+            print(playerList[i].Nome);
+            print(playerList[i].Score.ToString());
+        }
         return true;
     }
 }

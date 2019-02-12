@@ -78,9 +78,7 @@ public class Combo : MonoBehaviour {
 
     public void ResetCombo()
     {
-        comboCount = 0;
-        scoreCombo = 0;
-        score = 0;
+        
         comboIsActive = false;
         comboTimer = comboTimerRef;
         comboGui.SetActive(false);
@@ -121,8 +119,13 @@ public class Combo : MonoBehaviour {
 
     public void StartBonusAnimation()
     {
+
         bonusScore.SetActive(true);
         bonusScore.GetComponent<Text>().text = "+" + score.ToString();
+        comboCount = 0;
+        scoreCombo = 0;
+        score = 0;
+
         bonusScore.GetComponent<Animator>().SetTrigger("start");
     }
 

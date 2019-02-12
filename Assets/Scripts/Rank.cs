@@ -12,6 +12,7 @@ public class Rank : MonoBehaviour {
     GameObject gm;
     GameObject cb;
     GameObject dbr;
+    string nameCurrentPlayer;
 
 
     // Use this for initialization
@@ -32,9 +33,17 @@ public class Rank : MonoBehaviour {
     //cria um objeto do tipo player com os dados da respectiva partida e adiciona na lista de rank
     public void GetPlayerName()
     {
-        //dbr.GetComponent<DB_Rank>().playerList.Add(MakePlayer());
-        //PrintPlayerInfos(dbr.GetComponent<DB_Rank>().ArrangePlayerRank());
-        PrintPlayerInfos(MakePlayer());
+        dbr.GetComponent<DB_Rank>().playerList[5] = MakePlayer();
+        dbr.GetComponent<DB_Rank>().ArrangePlayerRank();
+        PrintPlayerInfos(SearchPlayer());
+        dbr.GetComponent<DB_Rank>().SaveList();
+
+        for (int i = 0; i < dbr.GetComponent<DB_Rank>().playerList.Length - 1; i++)
+        {
+            print(dbr.GetComponent<DB_Rank>().playerList[i].Position.ToString());
+            print(dbr.GetComponent<DB_Rank>().playerList[i].Nome);
+            print(dbr.GetComponent<DB_Rank>().playerList[i].Score.ToString());
+        }
 
     }
 
@@ -46,6 +55,8 @@ public class Rank : MonoBehaviour {
         pl.MaxLevel = gm.GetComponent<GameManager>().level;
         pl.Score = gm.GetComponent<GameManager>().score;
 
+        nameCurrentPlayer = pl.Nome;
+
         return pl;
     }
 
@@ -54,24 +65,44 @@ public class Rank : MonoBehaviour {
     {
         playerName.SetActive(false);
         playerStatistics.SetActive(true);
-        playerStatistics.transform.GetChild(0).gameObject.GetComponent<Text>().text =
-            //"Position:........" + currentPlayer.Position + "\n" +
-            "Score:..........." + currentPlayer.Score.ToString() + "\n" +
-            "Level:............" + currentPlayer.MaxLevel.ToString() + "\n" +
-            "Combo:........" + currentPlayer.NumberMaxCombo.ToString();
+        if(currentPlayer != null)
+        {
+            playerStatistics.transform.GetChild(0).gameObject.GetComponent<Text>().text =
+                "Position:........" + currentPlayer.Position + "\n" +
+                "Score:..........." + currentPlayer.Score.ToString() + "\n" +
+                "Level:............" + currentPlayer.MaxLevel.ToString() + "\n" +
+                "Combo:........" + currentPlayer.NumberMaxCombo.ToString();
+        }
+        else
+        {
+            playerStatistics.transform.GetChild(0).gameObject.GetComponent<Text>().text =
+                "Position:........" + "OFR" + "\n" +
+                "Score:..........." + dbr.GetComponent<DB_Rank>().playerList[5].Score.ToString() + "\n" +
+                "Level:............" + dbr.GetComponent<DB_Rank>().playerList[5].MaxLevel.ToString() + "\n" +
+                "Combo:........" + dbr.GetComponent<DB_Rank>().playerList[5].NumberMaxCombo.ToString();
+        }
+
     }
 
     public Player SearchPlayer()
     {
         //compara o nome do jogador da list para devolver seu rank
-        foreach (Player p in dbr.GetComponent<DB_Rank>().playerList)
+        //foreach (Player p in dbr.GetComponent<DB_Rank>().playerList)
+       // {
+        //    if (p.Nome.Equals(nameCurrentPlayer))
+        //    {
+        //        return p;
+        //    }
+       // }
+
+        for (int i = 0; i < dbr.GetComponent<DB_Rank>().playerList.Length - 1; i++)
         {
-            if (p.Nome.Equals(playerName.transform.GetChild(2).gameObject.GetComponent<Text>().text))
+            if (dbr.GetComponent<DB_Rank>().playerList[i].Nome.Equals(nameCurrentPlayer))
             {
-                return p;
+                return dbr.GetComponent<DB_Rank>().playerList[i];
             }
         }
-        return null;
+            return null;
     }
 
 
