@@ -86,7 +86,11 @@ public class Combo : MonoBehaviour {
 
     public void BonusScoreCombo()
     {
-        if(comboCount > 5 && comboCount <= 13)
+        if (comboCount <= 5)
+        {
+            bonus = 0f;
+        }
+        if (comboCount > 5 && comboCount <= 13)
         {
             bonus = .20f;
         }
