@@ -53,6 +53,7 @@ public class Combo : MonoBehaviour {
             comboTimer -= Time.deltaTime;
         if (comboTimer <= 0)
         {
+            comboCount = 0;
             ResetCombo();
         }
 
@@ -78,8 +79,8 @@ public class Combo : MonoBehaviour {
 
     public void ResetCombo()
     {
-        
-        comboIsActive = false;
+        scoreCombo = 0;
+        score = 0;
         comboTimer = comboTimerRef;
         comboGui.SetActive(false);
     }
@@ -109,7 +110,8 @@ public class Combo : MonoBehaviour {
 
         //grava numero maximo de combos 
         if (comboCount > comboCountMax) comboCountMax = comboCount;
-
+        comboIsActive = false;
+        comboCount = 0;
         score = (Mathf.RoundToInt(scoreCombo *= bonus));
         StartBonusAnimation();
 
@@ -126,9 +128,7 @@ public class Combo : MonoBehaviour {
 
         bonusScore.SetActive(true);
         bonusScore.GetComponent<Text>().text = "+" + score.ToString();
-        comboCount = 0;
-        scoreCombo = 0;
-        score = 0;
+
 
         bonusScore.GetComponent<Animator>().SetTrigger("start");
     }
