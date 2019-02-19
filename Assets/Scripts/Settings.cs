@@ -16,6 +16,7 @@ public class Settings : MonoBehaviour {
     public float effectsVolume;
     bool bgmActive = true;
     bool effectsActive = true;
+    GameObject dbrank;
 
 	// Use this for initialization
 	void Start () {
@@ -23,7 +24,7 @@ public class Settings : MonoBehaviour {
         noBgm.SetActive(false);
         noEffects.SetActive(false);
         settingsPanel.SetActive(false);
-
+        dbrank = GameObject.Find("Rank");
     }
 	
 	// Update is called once per frame
@@ -95,6 +96,7 @@ public class Settings : MonoBehaviour {
 
     public void GoToHome()
     {
+        dbrank.GetComponent<DB_Rank>().makeRank = true;
         SceneManager.LoadScene("Menu");
     }
 

@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
 
+    public GameObject rankPanel;
+
 	// Use this for initialization
 	void Start () {
-
+        rankPanel.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -24,6 +26,11 @@ public class Menu : MonoBehaviour {
     public void PlayTheGame()
     {
         SceneManager.LoadScene("play");
+    }
+
+    public void OpenRank()
+    {
+        rankPanel.SetActive(true);
     }
 
 }

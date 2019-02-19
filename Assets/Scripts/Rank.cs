@@ -99,7 +99,11 @@ public class Rank : MonoBehaviour {
         {
             if (dbr.GetComponent<DB_Rank>().playerList[i].Nome.Equals(nameCurrentPlayer))
             {
-                return dbr.GetComponent<DB_Rank>().playerList[i];
+                if(dbr.GetComponent<DB_Rank>().playerList[i].Score == gm.GetComponent<GameManager>().score)
+                {
+                    return dbr.GetComponent<DB_Rank>().playerList[i];
+                }
+                
             }
         }
             return null;

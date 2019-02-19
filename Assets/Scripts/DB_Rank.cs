@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DB_Rank : MonoBehaviour {
 
@@ -11,7 +12,11 @@ public class DB_Rank : MonoBehaviour {
     List<string> listOfCombo = new List<string>();
     List<string> listOfLevel = new List<string>();
     public Player[] playerList = new Player[6];
+    public GameObject panelRank;
+    public GameObject rankName;
+    public GameObject rankScore;
 
+    public bool makeRank = true;
 
     void Awake()
     {
@@ -51,13 +56,29 @@ public class DB_Rank : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
+        BuildRankPanel();
     }
 
     // Update is called once per frame
     void Update () {
-		
+        if (makeRank)
+        {
+            rankName = GameObject.Find("Name");
+            rankScore = GameObject.Find("Score");
+            BuildRankPanel();
+        }
 	}
+
+    public void BuildRankPanel()
+    {
+        for(int i = 0; i < rankName.transform.childCount; i++)
+        {
+            rankName.transform.GetChild(i).gameObject.GetComponent<Text>().text = playerList[i].Nome;
+            rankScore.transform.GetChild(i).gameObject.GetComponent<Text>().text = playerList[i].Score.ToString();
+        }
+        makeRank = false;
+
+    }
 
     public Player ArrangePlayerRank()
     {
@@ -113,12 +134,12 @@ public class DB_Rank : MonoBehaviour {
             playerList[i - 1].Position = i;
         }
 
-        for (int i = 0; i < playerList.Length - 1; i++)
+        /*for (int i = 0; i < playerList.Length - 1; i++)
         {
             print(playerList[i].Position.ToString());
             print(playerList[i].Nome);
             print(playerList[i].Score.ToString());
-        }
+        }*/
         return true;
     }
 }
