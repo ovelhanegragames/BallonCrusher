@@ -12,6 +12,7 @@ TagManager:
   - pop
   - tnt
   - caixa
+  - green
   layers:
   - Default
   - TransparentFX

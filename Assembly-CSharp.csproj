@@ -58,9 +58,11 @@
      <Compile Include="Assets\Scripts\Balloon_intro.cs" />
      <Compile Include="Assets\Scripts\Bonus.cs" />
      <Compile Include="Assets\Scripts\Brick.cs" />
+     <Compile Include="Assets\Scripts\CastSkill.cs" />
      <Compile Include="Assets\Scripts\Combo.cs" />
      <Compile Include="Assets\Scripts\DB_Rank.cs" />
      <Compile Include="Assets\Scripts\DestroiObjeto.cs" />
+     <Compile Include="Assets\Scripts\DragAndDrop.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Generator.cs" />
      <Compile Include="Assets\Scripts\Hit.cs" />

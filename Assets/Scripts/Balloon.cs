@@ -159,6 +159,7 @@ public class Balloon : MonoBehaviour {
                 Destroy(collision.gameObject);
                 DestroySameColor();
                 hp = 0;
+                gm.GetComponent<SkillManager>().skillActive = false;
             }
         }
         else if (isTnt)
@@ -168,11 +169,13 @@ public class Balloon : MonoBehaviour {
                 Destroy(collision.gameObject);
                 TntExplosion();
                 hp = 0;
+                gm.GetComponent<SkillManager>().skillActive = false;
             }
             if (collision.gameObject.tag == "brick" && ready)
             {
-                hp = 0;
                 TntExplosion();
+                hp = 0;
+                gm.GetComponent<SkillManager>().skillActive = false;
             }
         }
         else if (isBomb)
