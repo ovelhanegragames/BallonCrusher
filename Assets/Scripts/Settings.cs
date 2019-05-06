@@ -12,26 +12,28 @@ public class Settings : MonoBehaviour {
     public GameObject noBgm;
     public GameObject noEffects;
     GameObject gm;
+    GameObject om;
     public float bgmVolume;
     public float effectsVolume;
-    bool bgmActive = true;
-    bool effectsActive = true;
-    GameObject dbrank;
+    public bool bgmActive = true;
+    public bool effectsActive = true;
 
 	// Use this for initialization
 	void Start () {
         gm = GameObject.Find("Manager");
-        noBgm.SetActive(false);
-        noEffects.SetActive(false);
+        om = GameObject.Find("OptionsManager");
         settingsPanel.SetActive(false);
-        dbrank = GameObject.Find("Rank");
-    }
-	
-	// Update is called once per frame
-	void Update () {
+       
 
         if(bgmActive) bgmVolume = sliderBgm.GetComponent<Slider>().value;
         if(effectsActive) effectsVolume = sliderEffects.GetComponent<Slider>().value;
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+        //if(bgmActive) bgmVolume = sliderBgm.GetComponent<Slider>().value;
+        //if(effectsActive) effectsVolume = sliderEffects.GetComponent<Slider>().value;
 
         if(bgmVolume != 0)
         {
@@ -53,6 +55,17 @@ public class Settings : MonoBehaviour {
 
     }
 
+    public void ChangeEffect()
+    {
+        effectsVolume = sliderEffects.GetComponent<Slider>().value;
+    }
+
+    public void ChangeBgm()
+    {
+        bgmVolume = sliderBgm.GetComponent<Slider>().value;
+    }
+
+
     public void ShowPanel()
     {
         if (gm.GetComponent<GameManager>().gameState.Equals("play"))
@@ -66,6 +79,16 @@ public class Settings : MonoBehaviour {
             gm.GetComponent<GameManager>().gameState = "play";
         }
 
+    }
+
+    public void ShowMenu()
+    {
+        settingsPanel.SetActive(true);
+    }
+
+    public void HideMenu()
+    {
+        settingsPanel.SetActive(false);
     }
 
     public void NoBgmSound()
@@ -92,12 +115,6 @@ public class Settings : MonoBehaviour {
         {
             effectsActive = true;
         }
-    }
-
-    public void GoToHome()
-    {
-        dbrank.GetComponent<DB_Rank>().makeRank = true;
-        SceneManager.LoadScene("Menu");
     }
 
 }

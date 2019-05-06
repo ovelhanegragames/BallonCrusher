@@ -9,6 +9,7 @@ public class PopBalloon : MonoBehaviour {
     GameObject gm;
     GameObject st;
     GameObject wt;
+    GameObject om;
     int indice;
     AudioClip popSound;
     float volume;
@@ -20,6 +21,7 @@ public class PopBalloon : MonoBehaviour {
         gm = GameObject.Find("Manager");
         st = GameObject.Find("Settings");
         wt = GameObject.Find("Watcher");
+        om = GameObject.Find("OptionsManager");
 	}
 	
 	// Update is called once per frame
@@ -37,14 +39,16 @@ public class PopBalloon : MonoBehaviour {
             }
         }
 
-        volume = st.GetComponent<Settings>().effectsVolume;
+        //volume = st.GetComponent<Settings>().effectsVolume;
+        volume = om.GetComponent<OptionsManager>().effectsVolume;
 
 	}
 
     public void PlayPopSound()
     {
-        indice = Mathf.RoundToInt(Random.Range(0, gm.GetComponent<GameManager>().listOfPopSounds.Count));
-        popSound = gm.GetComponent<GameManager>().listOfPopSounds[indice];
+        //indice = Mathf.RoundToInt(Random.Range(0, gm.GetComponent<GameManager>().listOfPopSounds.Count));
+        //popSound = gm.GetComponent<GameManager>().listOfPopSounds[indice];
+        popSound = om.GetComponent<OptionsManager>().popSound;
         GetComponent<AudioSource>().PlayOneShot(popSound,volume);
     }
 

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Music : MonoBehaviour {
 
-    GameObject st;
+    GameObject om;
 	// Use this for initialization
 	void Start () {
-        st = GameObject.Find("Settings");
+        om = GameObject.Find("OptionsManager");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        GetComponent<AudioSource>().volume = st.GetComponent<Settings>().bgmVolume;
+        GetComponent<AudioSource>().volume = om.GetComponent<OptionsManager>().bgmVolume;
 	}
 }

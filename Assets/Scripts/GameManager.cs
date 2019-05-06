@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour {
 
     public List<GameObject> listOfBalloons = new List<GameObject>();
     public List<GameObject> listOfGenerators = new List<GameObject>();
-    public List<AudioClip> listOfPopSounds = new List<AudioClip>();
     public GameObject scoreLabel;
     public GameObject levelLabel;
     public GameObject coinsLabel;
