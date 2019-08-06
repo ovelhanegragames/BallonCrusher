@@ -14,6 +14,9 @@ public class PopBalloon : MonoBehaviour {
     AudioClip popSound;
     float volume;
 
+    Ray ray;
+    RaycastHit hit;
+
     //public GameObject star;
 
     // Use this for initialization
@@ -30,12 +33,21 @@ public class PopBalloon : MonoBehaviour {
         if (gm.GetComponent<GameManager>().gameState.Equals("play"))
         {
             // instancia objeto de colisao na posicao do toque na tela
+            //if (Input.GetMouseButtonDown(0))
+            //{
+            //    mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            //    Instantiate(pop, mousePosition, transform.rotation);
+            //}
             if (Input.GetMouseButtonDown(0))
             {
-                mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Instantiate(pop, mousePosition, transform.rotation);
-                //Instantiate(star, mousePosition, transform.rotation);
-               
+                ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.transform.tag == "enemy")
+                    {
+                        hit.transform.parent.gameObject.GetComponent<Balloon>().CheckBallon(hit.transform.parent.gameObject);
+                    }
+                }
             }
         }
 

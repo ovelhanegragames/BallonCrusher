@@ -130,7 +130,11 @@ public class Balloon : MonoBehaviour {
         {
             if(bl.GetComponent<Balloon>().hp == hpAux)
             {
-                bl.GetComponent<Balloon>().hp = 0;
+                if (!bl.GetComponent<Balloon>().isBomb)
+                {
+                    bl.GetComponent<Balloon>().hp = 0;
+                }
+                
             }
         }
     }
@@ -150,27 +154,75 @@ public class Balloon : MonoBehaviour {
         Instantiate(gm.GetComponent<GameManager>().brick, transform.position, transform.rotation);
     }
 
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (isRainbow)
+    //    {
+    //        if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
+    //        {
+    //            Destroy(collision.gameObject);
+    //            DestroySameColor();
+    //            hp = 0;
+    //            gm.GetComponent<SkillManager>().skillActive = false;
+    //        }
+    //    }
+    //    else if (isTnt)
+    //    {
+    //        if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
+    //        {
+    //            Destroy(collision.gameObject);
+    //            TntExplosion();
+    //            hp = 0;
+    //            gm.GetComponent<SkillManager>().skillActive = false;
+    //        }
+    //        if (collision.gameObject.tag == "brick" && ready)
+    //        {
+    //            TntExplosion();
+    //            hp = 0;
+    //            gm.GetComponent<SkillManager>().skillActive = false;
+    //        }
+    //    }
+    //    else if (isBomb)
+    //    {
+    //        if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
+    //        {
+    //            Destroy(collision.gameObject);
+    //            BombExplosion();
+    //            hp = 0;
+    //        }
+    //    }
+    //    else if (isNormal)
+    //    {
+    //        if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
+    //        {
+    //            GameObject hit = GameObject.FindGameObjectWithTag("pop");
+    //            Instantiate(gm.GetComponent<GameManager>().star, hit.transform.position, hit.transform.rotation);
+    //            Destroy(collision.gameObject);
+    //            hp -= 1;
+    //            if (hp == 0) wt.SendMessage("AddComboCount");
+    //        }
+
+    //        if ((collision.gameObject.tag == "wall" || collision.gameObject.tag == "brick") && ready)
+    //        {
+    //            hp = 0;
+    //            if (active)
+    //            {
+    //                //Instantiate(gm.GetComponent<GameManager>().brick, transform.position, transform.rotation);
+    //                Instantiate(gm.GetComponent<GameManager>().brick, new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z), transform.rotation);
+    //                active = false;
+    //            }
+    //        }
+    //    }
+    //    else
+    //    {
+
+    //    }
+    //}
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (isRainbow)
+        if (isTnt)
         {
-            if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
-            {
-                Destroy(collision.gameObject);
-                DestroySameColor();
-                hp = 0;
-                gm.GetComponent<SkillManager>().skillActive = false;
-            }
-        }
-        else if (isTnt)
-        {
-            if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
-            {
-                Destroy(collision.gameObject);
-                TntExplosion();
-                hp = 0;
-                gm.GetComponent<SkillManager>().skillActive = false;
-            }
             if (collision.gameObject.tag == "brick" && ready)
             {
                 TntExplosion();
@@ -178,35 +230,64 @@ public class Balloon : MonoBehaviour {
                 gm.GetComponent<SkillManager>().skillActive = false;
             }
         }
-        else if (isBomb)
-        {
-            if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
-            {
-                Destroy(collision.gameObject);
-                BombExplosion();
-                hp = 0;
-            }
-        }
         else if (isNormal)
         {
-            if (collision.gameObject.tag == "pop" && ready && collision.gameObject.GetComponent<Hit>().isActive)
-            {
-                GameObject hit = GameObject.FindGameObjectWithTag("pop");
-                Instantiate(gm.GetComponent<GameManager>().star, hit.transform.position, hit.transform.rotation);
-                Destroy(collision.gameObject);
-                hp -= 1;
-                if (hp == 0) wt.SendMessage("AddComboCount");
-            }
-
             if ((collision.gameObject.tag == "wall" || collision.gameObject.tag == "brick") && ready)
             {
                 hp = 0;
                 if (active)
                 {
-                    //Instantiate(gm.GetComponent<GameManager>().brick, transform.position, transform.rotation);
                     Instantiate(gm.GetComponent<GameManager>().brick, new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z), transform.rotation);
                     active = false;
                 }
+            }
+        }
+        else
+        {
+
+        }
+    }
+
+    public void CheckBallon(GameObject obj)
+    {
+        Balloon bl = obj.GetComponent<Balloon>();
+        if (bl.isRainbow) 
+        {
+            if (bl.ready)
+            {
+               //Destroy(obj.gameObject);
+                DestroySameColor();
+                hp = 0;
+                gm.GetComponent<SkillManager>().skillActive = false;
+            }
+        }
+        else if (bl.isTnt)
+        {
+            if (bl.ready)
+            {
+                //Destroy(obj.gameObject);
+                TntExplosion();
+                hp = 0;
+                gm.GetComponent<SkillManager>().skillActive = false;
+            }
+        }
+        else if (bl.isBomb)
+        {
+            if (bl.ready)
+            {
+                //Destroy(obj.gameObject);
+                BombExplosion();
+                hp = 0;
+            }
+        }
+        else if (bl.isNormal)
+        {
+            if (bl.ready)
+            {
+                Instantiate(gm.GetComponent<GameManager>().star, transform.position,transform.rotation);
+                //Destroy(obj.gameObject);
+                hp -= 1;
+                if (hp == 0) wt.SendMessage("AddComboCount");
             }
         }
         else

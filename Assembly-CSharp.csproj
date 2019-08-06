@@ -79,6 +79,7 @@
      <Compile Include="Assets\Scripts\Scroll_UI.cs" />
      <Compile Include="Assets\Scripts\Settings.cs" />
      <Compile Include="Assets\Scripts\SkillManager.cs" />
+     <Compile Include="Assets\Scripts\Teste\raycast.cs" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>D:/Projetos/_GIT/BallonCrusher/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>

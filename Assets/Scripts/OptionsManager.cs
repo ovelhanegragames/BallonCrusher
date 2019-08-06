@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class OptionsManager : MonoBehaviour {
@@ -12,6 +13,7 @@ public class OptionsManager : MonoBehaviour {
     public bool effectsActive;
 
     public static OptionsManager instance = null;
+
 
     private void Awake()
     {

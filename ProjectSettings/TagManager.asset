@@ -13,6 +13,8 @@ TagManager:
   - tnt
   - caixa
   - green
+  - enemy
+  - Inimigo
   layers:
   - Default
   - TransparentFX
