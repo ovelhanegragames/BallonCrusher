@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/play.unity
     guid: 23231bfdebc022040817d5a97f9fc9cf
+  - enabled: 1
+    path: Assets/Kids.unity
+    guid: caf0e98357f5cd9499eb3c1c7ed15565
   m_configObjects: {}

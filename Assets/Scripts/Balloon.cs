@@ -120,6 +120,7 @@ public class Balloon : MonoBehaviour {
             wt.SendMessage("AddScoreCombo", score);
         }
         mc.SendMessage("PlayPopSound");
+        gm.GetComponent<GameManager>().starBlock = false;
         Destroy(this.gameObject);
     }
 
@@ -284,10 +285,27 @@ public class Balloon : MonoBehaviour {
         {
             if (bl.ready)
             {
-                Instantiate(gm.GetComponent<GameManager>().star, transform.position,transform.rotation);
-                //Destroy(obj.gameObject);
-                hp -= 1;
-                if (hp == 0) wt.SendMessage("AddComboCount");
+                if (gm.GetComponent<GameManager>().isKids)
+                {
+                    if (gm.GetComponent<GameManager>().starBlock)
+                    {
+                        
+                    }
+                    else
+                    {
+                        Instantiate(gm.GetComponent<GameManager>().star, transform.position, transform.rotation);
+                        gm.GetComponent<GameManager>().starBlock = true;
+                    }
+                    speed = 0;
+                    PopBalloon();
+                }
+                else
+                {
+                    Instantiate(gm.GetComponent<GameManager>().star, transform.position, transform.rotation);
+                    hp -= 1;
+                    if (hp == 0) wt.SendMessage("AddComboCount");
+                }
+                
             }
         }
         else

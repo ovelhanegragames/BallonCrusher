@@ -36,8 +36,16 @@ public class SkillManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        rainbowLabel.GetComponent<Text>().text = raindowCost.ToString();
-        tntLabel.GetComponent<Text>().text = tntCost.ToString();
+        if (gm.GetComponent<GameManager>().isKids)
+        {
+
+        }
+        else
+        {
+            rainbowLabel.GetComponent<Text>().text = raindowCost.ToString();
+            tntLabel.GetComponent<Text>().text = tntCost.ToString();
+        }
+
 
         if (dragging)
         {

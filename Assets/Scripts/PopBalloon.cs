@@ -28,17 +28,26 @@ public class PopBalloon : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-
+	void Update ()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            gm.GetComponent<GameManager>().starBlock = false;
+        }
         if (gm.GetComponent<GameManager>().gameState.Equals("play"))
         {
-            // instancia objeto de colisao na posicao do toque na tela
-            //if (Input.GetMouseButtonDown(0))
-            //{
-            //    mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            //    Instantiate(pop, mousePosition, transform.rotation);
-            //}
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButton(0) && gm.GetComponent<GameManager>().isKids)
+            {
+                ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    if (hit.transform.tag == "enemy")
+                    { 
+                        hit.transform.parent.gameObject.GetComponent<Balloon>().CheckBallon(hit.transform.parent.gameObject);
+                    }
+                }
+            }
+            else if (Input.GetMouseButtonDown(0))
             {
                 ray = GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit))
@@ -47,8 +56,13 @@ public class PopBalloon : MonoBehaviour {
                     {
                         hit.transform.parent.gameObject.GetComponent<Balloon>().CheckBallon(hit.transform.parent.gameObject);
                     }
+                    else
+                    {
+                        wt.SendMessage("BonusScoreCombo");
+                    }
                 }
             }
+
         }
 
         //volume = st.GetComponent<Settings>().effectsVolume;
@@ -66,14 +80,14 @@ public class PopBalloon : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "balloon")
-        {
+        //if(collision.gameObject.tag == "balloon")
+        //{
 
-        }
-        else
-        {
-            wt.SendMessage("BonusScoreCombo");
-        }
+        //}
+        //else
+        //{
+        //    wt.SendMessage("BonusScoreCombo");
+        //}
     }
 
 }

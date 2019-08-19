@@ -29,18 +29,36 @@ public class GameManager : MonoBehaviour {
     int bombBalloonCount = 0;
     public int bombBalloonRef;
 
+    public bool isKids;
+    public bool starBlock = false;
+
 	// Use this for initialization
 	void Start () {
         numberOffBalloons = endOfTheGame;
-        gameOver.SetActive(false);
+        if (isKids)
+        {
+
+        }
+        else
+        {
+            gameOver.SetActive(false);
+        }
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        if (isKids)
+        {
 
-        scoreLabel.GetComponent<Text>().text = "SCORE: " + score;
-        levelLabel.GetComponent<Text>().text = "LEVEL: " + level;
-        coinsLabel.GetComponent<Text>().text = "COINS: " + coins;
+        }
+        else
+        {
+            scoreLabel.GetComponent<Text>().text = "SCORE: " + score;
+            levelLabel.GetComponent<Text>().text = "LEVEL: " + level;
+            coinsLabel.GetComponent<Text>().text = "COINS: " + coins;
+        }
+
 
         if (coins <= 0) coins = 0;
 
@@ -61,7 +79,15 @@ public class GameManager : MonoBehaviour {
                 {
                     listOfGenerators[indice].SendMessage("MakeBalloon");
                     PopBalloon();
-                    MakeBombBalloon();
+                    if (isKids)
+                    {
+
+                    }
+                    else
+                    {
+                        MakeBombBalloon();
+                    }
+                    
                 }
                 else
                 {
@@ -81,25 +107,16 @@ public class GameManager : MonoBehaviour {
     {
         level += 1;
         levelSpeed += .35f;
-        if(level > 1)
+        if (level > 1)
         {
             levelSleep += .2f;
         }
-        /*
-        if (level % 2 == 0)
-        {
-            levelSpeed += .3f;
-        }
-        else
-        {
-            levelSleep += .2f;
-        }
-        */
+
         if (levelSleep > 2)
         {
             levelSleep = 2;
         }
-        
+
 
         endOfTheGame = (numberOffBalloons + 5);
         numberOffBalloons = endOfTheGame;

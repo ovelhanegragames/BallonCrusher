@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1194562483285588}
+  m_IsPrefabAsset: 1
+--- !u!1 &1194562483285588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4109558294102560}
+  - component: {fileID: 114708913391541666}
+  - component: {fileID: 114000412709726490}
+  - component: {fileID: 114219686912977276}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4109558294102560
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1194562483285588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.4588532, y: -12.272353, z: -0.04499775}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114000412709726490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1194562483285588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b56866db2eb67c2488781af8cf953358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  centerSpot: {fileID: 0}
+  rainbowBalloon: {fileID: 1012504461183960, guid: a3f187bb90408f54fb0f3b7229733e5d,
+    type: 2}
+  tntBalloon: {fileID: 1221001570896126, guid: a7db2068505e3da44adc36500ea17f2b, type: 2}
+  rainbowLabel: {fileID: 0}
+  tntLabel: {fileID: 0}
+  cloneRainbow: {fileID: 1486850599219136, guid: d6ba492e2bf38b143be7529cff8966dc,
+    type: 2}
+  cloneTnt: {fileID: 1573794327681328, guid: e791715ebce0ea949a96a592aa6abb0f, type: 2}
+  skillActive: 0
+  dragging: 0
+  debug: {fileID: 0}
+--- !u!114 &114219686912977276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1194562483285588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97fb3b00100349b4a8f27c487fdba30f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerName: {fileID: 0}
+  playerStatistics: {fileID: 0}
+--- !u!114 &114708913391541666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1194562483285588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 177df8233fbb2ed4da940e0f6e2e233d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listOfBalloons:
+  - {fileID: 1293999728070144, guid: 61349bcd249519740a84b6c82c73c812, type: 2}
+  - {fileID: 1870627454553672, guid: 5a555dbafe7cf0245935573dd3b3d0ff, type: 2}
+  - {fileID: 1430891747705202, guid: 16a1e754cbbba6c4c913cd8a4a15b877, type: 2}
+  listOfGenerators:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  scoreLabel: {fileID: 0}
+  levelLabel: {fileID: 0}
+  coinsLabel: {fileID: 0}
+  brick: {fileID: 1539928283945214, guid: 00b123dfb588be44bb083ca27313e444, type: 2}
+  gameOver: {fileID: 0}
+  tntExplosion: {fileID: 1928256187575602, guid: c334f728cf86a874e83a3f06e1081d6e,
+    type: 2}
+  bombBalloon: {fileID: 1932866250488702, guid: c899ea8bb7c9c1441a6cdd2837882ea7,
+    type: 2}
+  star: {fileID: 1799383133412710, guid: c51ddc495174a774b9f76388ff3225df, type: 2}
+  score: 0
+  endOfTheGame: 10
+  levelSpeed: 1
+  levelSleep: 0
+  level: 0
+  sleep: 2
+  gameState: play
+  bombBalloonRef: 14

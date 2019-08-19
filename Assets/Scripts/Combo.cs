@@ -22,9 +22,16 @@ public class Combo : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         gm = GameObject.Find("Manager");
-        comboGui.SetActive(false);
-        bonusScore.SetActive(false);
         comboTimer = comboTimerRef;
+        if (gm.GetComponent<GameManager>().isKids)
+        {
+
+        }
+        else
+        {
+            comboGui.SetActive(false);
+            bonusScore.SetActive(false);
+        }
 	}
 	
 	// Update is called once per frame
@@ -82,7 +89,15 @@ public class Combo : MonoBehaviour {
         scoreCombo = 0;
         score = 0;
         comboTimer = comboTimerRef;
-        comboGui.SetActive(false);
+        if (gm.GetComponent<GameManager>().isKids)
+        {
+
+        }
+        else
+        {
+            comboGui.SetActive(false);
+        }
+        
     }
 
     public void BonusScoreCombo()

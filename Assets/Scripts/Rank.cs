@@ -18,10 +18,18 @@ public class Rank : MonoBehaviour {
     // Use this for initialization
     void Start () {
         player = new Player();
-        playerStatistics.SetActive(false);
         gm = GameObject.Find("Manager");
         cb = GameObject.Find("Watcher");
         dbr = GameObject.Find("Rank");
+
+        if (gm.GetComponent<GameManager>().isKids)
+        {
+
+        }
+        else
+        {
+            playerStatistics.SetActive(false);
+        }
 
     }
 	
