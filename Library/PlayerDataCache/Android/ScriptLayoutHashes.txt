@@ -1,9 +1,10 @@
 Android
 PlayerPath?
-D:/Projetos/_GIT/BallonCrusher/BalloonCrusher.apk
+D:/Projetos/_GIT/BallonCrusher/BalloonCrusher1.0.1.apk
 SceneListBegin?
 Assets/Menu.unity
 Assets/play.unity
+Assets/Kids.unity
 SceneListEnd?
 190e662eff93dc702624ccacf8d0ddf1 Assembly-CSharp.dll:.Rank
 c422dd62785a6d0afa870fbd111886ce Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
@@ -91,7 +92,7 @@ e90403eeda069970e0b9de1533de13a6 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 16da51d1b62ef6d4ee1849350434023b UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.Brick
 487ca73a0d79f14989c62a6bc6dd2526 Assembly-CSharp.dll:.Bonus
-5e7f7aedd9f54c9780a6420922b22b99 Assembly-CSharp.dll:.GameManager
+ba3dd7a6ff68096afc7fd8ad736e1f96 Assembly-CSharp.dll:.GameManager
 486cd95c82d8305219c352c06b776e1f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 9e61f3535f3c55760a1cedfbd114f4af UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 754551afe4f2531f58476bf14c510657 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset

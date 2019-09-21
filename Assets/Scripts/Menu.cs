@@ -31,6 +31,11 @@ public class Menu : MonoBehaviour {
     public void OpenRank()
     {
         //rankPanel.SetActive(true);
+       
+    }
+
+    public void PlayKids()
+    {
         SceneManager.LoadScene("Kids");
     }
 

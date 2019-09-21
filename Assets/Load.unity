@@ -219,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f699db49b15f4c44597658dea8af67f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rankPanel: {fileID: 0}
 --- !u!1 &350268546
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +461,31 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 148304423}
+    - target: {fileID: 224404105710803144, guid: 72ca25db4a162714b860e3841f2b32c4,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.4000168
+      objectReference: {fileID: 0}
+    - target: {fileID: 224384969825216116, guid: 72ca25db4a162714b860e3841f2b32c4,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -3.0999985
+      objectReference: {fileID: 0}
+    - target: {fileID: 224384969825216116, guid: 72ca25db4a162714b860e3841f2b32c4,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.05845642
+      objectReference: {fileID: 0}
+    - target: {fileID: 224384969825216116, guid: 72ca25db4a162714b860e3841f2b32c4,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -6.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224384969825216116, guid: 72ca25db4a162714b860e3841f2b32c4,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 17.657
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72ca25db4a162714b860e3841f2b32c4, type: 2}
   m_IsPrefabAsset: 0
