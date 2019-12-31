@@ -1,47 +1,108 @@
 fileFormatVersion: 2
 guid: 77a7e5a30b49f1e489f2697612b8330c
-timeCreated: 1462742414
-licenseType: Store
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: RewardIcons_0
-    21300002: RewardIcons_1
-    21300004: RewardIcons_2
-    21300006: RewardIcons_3
-    21300008: RewardIcons_4
-    21300010: RewardIcons_5
-    21300012: RewardIcons_6
-    21300014: RewardIcons_7
-    21300016: RewardIcons_8
-    21300018: RewardIcons_9
-    21300020: RewardIcons_10
-    21300022: RewardIcons_11
-    21300024: RewardIcons_12
-    21300026: RewardIcons_13
-    21300028: RewardIcons_14
-    21300030: RewardIcons_15
-    21300032: RewardIcons_16
-    21300034: RewardIcons_17
-    21300036: RewardIcons_18
-    21300038: RewardIcons_19
-    21300040: RewardIcons_20
-    21300042: RewardIcons_21
-    21300044: RewardIcons_22
-    21300046: RewardIcons_23
-    21300048: RewardIcons_24
-    21300050: RewardIcons_25
-    21300052: RewardIcons_26
-    21300054: RewardIcons_27
-    21300056: RewardIcons_28
-    21300058: RewardIcons_29
-  serializedVersion: 2
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: RewardIcons_0
+  - first:
+      213: 21300002
+    second: RewardIcons_1
+  - first:
+      213: 21300004
+    second: RewardIcons_2
+  - first:
+      213: 21300006
+    second: RewardIcons_3
+  - first:
+      213: 21300008
+    second: RewardIcons_4
+  - first:
+      213: 21300010
+    second: RewardIcons_5
+  - first:
+      213: 21300012
+    second: RewardIcons_6
+  - first:
+      213: 21300014
+    second: RewardIcons_7
+  - first:
+      213: 21300016
+    second: RewardIcons_8
+  - first:
+      213: 21300018
+    second: RewardIcons_9
+  - first:
+      213: 21300020
+    second: RewardIcons_10
+  - first:
+      213: 21300022
+    second: RewardIcons_11
+  - first:
+      213: 21300024
+    second: RewardIcons_12
+  - first:
+      213: 21300026
+    second: RewardIcons_13
+  - first:
+      213: 21300028
+    second: RewardIcons_14
+  - first:
+      213: 21300030
+    second: RewardIcons_15
+  - first:
+      213: 21300032
+    second: RewardIcons_16
+  - first:
+      213: 21300034
+    second: RewardIcons_17
+  - first:
+      213: 21300036
+    second: RewardIcons_18
+  - first:
+      213: 21300038
+    second: RewardIcons_19
+  - first:
+      213: 21300040
+    second: RewardIcons_20
+  - first:
+      213: 21300042
+    second: RewardIcons_21
+  - first:
+      213: 21300044
+    second: RewardIcons_22
+  - first:
+      213: 21300046
+    second: RewardIcons_23
+  - first:
+      213: 21300048
+    second: RewardIcons_24
+  - first:
+      213: 21300050
+    second: RewardIcons_25
+  - first:
+      213: 21300052
+    second: RewardIcons_26
+  - first:
+      213: 21300054
+    second: RewardIcons_27
+  - first:
+      213: 21300056
+    second: RewardIcons_28
+  - first:
+      213: 21300058
+    second: RewardIcons_29
+  externalObjects: {}
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+    sRGBTexture: 1
     linearTexture: 0
-    correctGamma: 0
     fadeOut: 0
     borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -50,37 +111,60 @@ TextureImporter:
     heightScale: 0.25
     normalMapFilter: 0
   isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
   grayScaleToAlpha: 0
-  generateCubemap: 0
+  generateCubemap: 6
   cubemapConvolution: 0
-  cubemapConvolutionSteps: 7
-  cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
+    serializedVersion: 2
     filterMode: -1
     aniso: 16
-    mipBias: -1
-    wrapMode: 1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
-  rGBM: 0
   compressionQuality: 50
-  allowsAlphaSplitting: 0
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationDetail: -1
   textureType: 8
-  buildTargetSettings: []
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
+    serializedVersion: 2
     sprites:
-    - name: RewardIcons_0
+    - serializedVersion: 2
+      name: RewardIcons_0
       rect:
         serializedVersion: 2
         x: 43
@@ -90,17 +174,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 47, y: 79}
-        - {x: -32, y: 79}
-        - {x: -83, y: 55}
-        - {x: -83, y: -34}
-        - {x: -70, y: -79}
-        - {x: 72, y: -79}
-        - {x: 74, y: -78}
-        - {x: 83, y: -19}
-        - {x: 83, y: 49}
-    - name: RewardIcons_1
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02305410000000000800000000000000
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_1
       rect:
         serializedVersion: 2
         x: 224
@@ -110,17 +195,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 47, y: 79}
-        - {x: -32, y: 79}
-        - {x: -83, y: 55}
-        - {x: -83, y: -34}
-        - {x: -70, y: -79}
-        - {x: 72, y: -79}
-        - {x: 74, y: -78}
-        - {x: 83, y: -19}
-        - {x: 83, y: 49}
-    - name: RewardIcons_2
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22305410000000000800000000000000
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_2
       rect:
         serializedVersion: 2
         x: 405
@@ -130,17 +216,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 47, y: 79}
-        - {x: -32, y: 79}
-        - {x: -83, y: 55}
-        - {x: -83, y: -34}
-        - {x: -70, y: -79}
-        - {x: 72, y: -79}
-        - {x: 74, y: -78}
-        - {x: 83, y: -19}
-        - {x: 83, y: 49}
-    - name: RewardIcons_3
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42305410000000000800000000000000
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_3
       rect:
         serializedVersion: 2
         x: 585
@@ -150,17 +237,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 47, y: 79}
-        - {x: -32, y: 79}
-        - {x: -83, y: 55}
-        - {x: -83, y: -34}
-        - {x: -70, y: -79}
-        - {x: 72, y: -79}
-        - {x: 74, y: -78}
-        - {x: 83, y: -19}
-        - {x: 83, y: 49}
-    - name: RewardIcons_4
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62305410000000000800000000000000
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_4
       rect:
         serializedVersion: 2
         x: 756
@@ -170,17 +258,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 47, y: 79}
-        - {x: -32, y: 79}
-        - {x: -83, y: 55}
-        - {x: -83, y: -34}
-        - {x: -70, y: -79}
-        - {x: 72, y: -79}
-        - {x: 74, y: -78}
-        - {x: 83, y: -19}
-        - {x: 83, y: 49}
-    - name: RewardIcons_5
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82305410000000000800000000000000
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_5
       rect:
         serializedVersion: 2
         x: 937
@@ -190,17 +279,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 47, y: 79}
-        - {x: -32, y: 79}
-        - {x: -83, y: 55}
-        - {x: -83, y: -34}
-        - {x: -70, y: -79}
-        - {x: 72, y: -79}
-        - {x: 74, y: -78}
-        - {x: 83, y: -19}
-        - {x: 83, y: 49}
-    - name: RewardIcons_6
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2305410000000000800000000000000
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_6
       rect:
         serializedVersion: 2
         x: 54
@@ -210,17 +300,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 40.5, y: 89}
-        - {x: -35.5, y: 89}
-        - {x: -71.5, y: 65}
-        - {x: -71.5, y: -85}
-        - {x: -66.5, y: -89}
-        - {x: 65.5, y: -89}
-        - {x: 71.5, y: -81}
-        - {x: 71.5, y: 54}
-        - {x: 48.5, y: 87}
-    - name: RewardIcons_7
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2305410000000000800000000000000
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_7
       rect:
         serializedVersion: 2
         x: 228
@@ -230,17 +321,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 40.5, y: 89}
-        - {x: -35.5, y: 89}
-        - {x: -71.5, y: 65}
-        - {x: -71.5, y: -85}
-        - {x: -66.5, y: -89}
-        - {x: 65.5, y: -89}
-        - {x: 71.5, y: -81}
-        - {x: 71.5, y: 54}
-        - {x: 48.5, y: 87}
-    - name: RewardIcons_8
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2305410000000000800000000000000
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_8
       rect:
         serializedVersion: 2
         x: 413
@@ -250,17 +342,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 40.5, y: 89}
-        - {x: -35.5, y: 89}
-        - {x: -71.5, y: 65}
-        - {x: -71.5, y: -85}
-        - {x: -66.5, y: -89}
-        - {x: 65.5, y: -89}
-        - {x: 71.5, y: -81}
-        - {x: 71.5, y: 54}
-        - {x: 48.5, y: 87}
-    - name: RewardIcons_9
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03305410000000000800000000000000
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_9
       rect:
         serializedVersion: 2
         x: 597
@@ -270,17 +363,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 40.5, y: 89}
-        - {x: -35.5, y: 89}
-        - {x: -71.5, y: 65}
-        - {x: -71.5, y: -85}
-        - {x: -66.5, y: -89}
-        - {x: 65.5, y: -89}
-        - {x: 71.5, y: -81}
-        - {x: 71.5, y: 54}
-        - {x: 48.5, y: 87}
-    - name: RewardIcons_10
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23305410000000000800000000000000
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_10
       rect:
         serializedVersion: 2
         x: 767
@@ -290,17 +384,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 40.5, y: 89}
-        - {x: -35.5, y: 89}
-        - {x: -71.5, y: 65}
-        - {x: -71.5, y: -85}
-        - {x: -66.5, y: -89}
-        - {x: 65.5, y: -89}
-        - {x: 71.5, y: -81}
-        - {x: 71.5, y: 54}
-        - {x: 48.5, y: 87}
-    - name: RewardIcons_11
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43305410000000000800000000000000
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_11
       rect:
         serializedVersion: 2
         x: 947
@@ -310,17 +405,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: 40.5, y: 89}
-        - {x: -35.5, y: 89}
-        - {x: -71.5, y: 65}
-        - {x: -71.5, y: -85}
-        - {x: -66.5, y: -89}
-        - {x: 65.5, y: -89}
-        - {x: 71.5, y: -81}
-        - {x: 71.5, y: 54}
-        - {x: 48.5, y: 87}
-    - name: RewardIcons_12
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63305410000000000800000000000000
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_12
       rect:
         serializedVersion: 2
         x: 43
@@ -330,17 +426,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -19, y: 99}
-        - {x: -81, y: 28}
-        - {x: -81, y: -21}
-        - {x: -64, y: -81}
-        - {x: -26, y: -99}
-        - {x: 34, y: -99}
-        - {x: 81, y: -23}
-        - {x: 81, y: 17}
-        - {x: 21, y: 99}
-    - name: RewardIcons_13
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83305410000000000800000000000000
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_13
       rect:
         serializedVersion: 2
         x: 217
@@ -350,17 +447,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -19, y: 99}
-        - {x: -81, y: 28}
-        - {x: -81, y: -21}
-        - {x: -64, y: -81}
-        - {x: -26, y: -99}
-        - {x: 34, y: -99}
-        - {x: 81, y: -23}
-        - {x: 81, y: 17}
-        - {x: 21, y: 99}
-    - name: RewardIcons_14
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3305410000000000800000000000000
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_14
       rect:
         serializedVersion: 2
         x: 403
@@ -370,17 +468,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -19, y: 99}
-        - {x: -81, y: 28}
-        - {x: -81, y: -21}
-        - {x: -64, y: -81}
-        - {x: -26, y: -99}
-        - {x: 34, y: -99}
-        - {x: 81, y: -23}
-        - {x: 81, y: 17}
-        - {x: 21, y: 99}
-    - name: RewardIcons_15
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3305410000000000800000000000000
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_15
       rect:
         serializedVersion: 2
         x: 589
@@ -390,17 +489,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -19, y: 99}
-        - {x: -81, y: 28}
-        - {x: -81, y: -21}
-        - {x: -64, y: -81}
-        - {x: -26, y: -99}
-        - {x: 34, y: -99}
-        - {x: 81, y: -23}
-        - {x: 81, y: 17}
-        - {x: 21, y: 99}
-    - name: RewardIcons_16
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3305410000000000800000000000000
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_16
       rect:
         serializedVersion: 2
         x: 760
@@ -410,17 +510,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -19, y: 99}
-        - {x: -81, y: 28}
-        - {x: -81, y: -21}
-        - {x: -64, y: -81}
-        - {x: -26, y: -99}
-        - {x: 34, y: -99}
-        - {x: 81, y: -23}
-        - {x: 81, y: 17}
-        - {x: 21, y: 99}
-    - name: RewardIcons_17
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04305410000000000800000000000000
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_17
       rect:
         serializedVersion: 2
         x: 939
@@ -430,17 +531,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -19, y: 99}
-        - {x: -81, y: 28}
-        - {x: -81, y: -21}
-        - {x: -64, y: -81}
-        - {x: -26, y: -99}
-        - {x: 34, y: -99}
-        - {x: 81, y: -23}
-        - {x: 81, y: 17}
-        - {x: 21, y: 99}
-    - name: RewardIcons_18
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24305410000000000800000000000000
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_18
       rect:
         serializedVersion: 2
         x: 45
@@ -450,17 +552,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -9, y: 103}
-        - {x: -61, y: 59}
-        - {x: -66, y: 7}
-        - {x: -66, y: -77}
-        - {x: -49, y: -103}
-        - {x: 20, y: -103}
-        - {x: 66, y: -90}
-        - {x: 66, y: 85}
-        - {x: 50, y: 103}
-    - name: RewardIcons_19
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44305410000000000800000000000000
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_19
       rect:
         serializedVersion: 2
         x: 225
@@ -470,17 +573,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -9, y: 103}
-        - {x: -61, y: 59}
-        - {x: -66, y: 7}
-        - {x: -66, y: -77}
-        - {x: -49, y: -103}
-        - {x: 20, y: -103}
-        - {x: 66, y: -90}
-        - {x: 66, y: 85}
-        - {x: 50, y: 103}
-    - name: RewardIcons_20
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64305410000000000800000000000000
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_20
       rect:
         serializedVersion: 2
         x: 405
@@ -490,17 +594,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -9, y: 103}
-        - {x: -61, y: 59}
-        - {x: -66, y: 7}
-        - {x: -66, y: -77}
-        - {x: -49, y: -103}
-        - {x: 20, y: -103}
-        - {x: 66, y: -90}
-        - {x: 66, y: 85}
-        - {x: 50, y: 103}
-    - name: RewardIcons_21
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84305410000000000800000000000000
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_21
       rect:
         serializedVersion: 2
         x: 591
@@ -510,17 +615,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -9, y: 103}
-        - {x: -61, y: 59}
-        - {x: -66, y: 7}
-        - {x: -66, y: -77}
-        - {x: -49, y: -103}
-        - {x: 20, y: -103}
-        - {x: 66, y: -90}
-        - {x: 66, y: 85}
-        - {x: 50, y: 103}
-    - name: RewardIcons_22
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4305410000000000800000000000000
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_22
       rect:
         serializedVersion: 2
         x: 771
@@ -530,17 +636,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -9, y: 103}
-        - {x: -61, y: 59}
-        - {x: -66, y: 7}
-        - {x: -66, y: -77}
-        - {x: -49, y: -103}
-        - {x: 20, y: -103}
-        - {x: 66, y: -90}
-        - {x: 66, y: 85}
-        - {x: 50, y: 103}
-    - name: RewardIcons_23
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4305410000000000800000000000000
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_23
       rect:
         serializedVersion: 2
         x: 951
@@ -550,17 +657,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -9, y: 103}
-        - {x: -61, y: 59}
-        - {x: -66, y: 7}
-        - {x: -66, y: -77}
-        - {x: -49, y: -103}
-        - {x: 20, y: -103}
-        - {x: 66, y: -90}
-        - {x: 66, y: 85}
-        - {x: 50, y: 103}
-    - name: RewardIcons_24
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4305410000000000800000000000000
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_24
       rect:
         serializedVersion: 2
         x: 0
@@ -570,17 +678,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -46.5, y: 86.5}
-        - {x: -79.5, y: 57.5}
-        - {x: -86.5, y: 32.5}
-        - {x: -86.5, y: -39.5}
-        - {x: -82.5, y: -60.5}
-        - {x: -39.5, y: -86.5}
-        - {x: 75.5, y: -86.5}
-        - {x: 86.5, y: -84.5}
-        - {x: 86.5, y: 86.5}
-    - name: RewardIcons_25
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05305410000000000800000000000000
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_25
       rect:
         serializedVersion: 2
         x: 181
@@ -590,17 +699,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -46.5, y: 86.5}
-        - {x: -79.5, y: 57.5}
-        - {x: -86.5, y: 32.5}
-        - {x: -86.5, y: -39.5}
-        - {x: -82.5, y: -60.5}
-        - {x: -39.5, y: -86.5}
-        - {x: 75.5, y: -86.5}
-        - {x: 86.5, y: -84.5}
-        - {x: 86.5, y: 86.5}
-    - name: RewardIcons_26
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25305410000000000800000000000000
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_26
       rect:
         serializedVersion: 2
         x: 362
@@ -610,17 +720,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -46.5, y: 86.5}
-        - {x: -79.5, y: 57.5}
-        - {x: -86.5, y: 32.5}
-        - {x: -86.5, y: -39.5}
-        - {x: -82.5, y: -60.5}
-        - {x: -39.5, y: -86.5}
-        - {x: 75.5, y: -86.5}
-        - {x: 86.5, y: -84.5}
-        - {x: 86.5, y: 86.5}
-    - name: RewardIcons_27
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45305410000000000800000000000000
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_27
       rect:
         serializedVersion: 2
         x: 550
@@ -630,17 +741,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -46.5, y: 86.5}
-        - {x: -79.5, y: 57.5}
-        - {x: -86.5, y: 32.5}
-        - {x: -86.5, y: -39.5}
-        - {x: -82.5, y: -60.5}
-        - {x: -39.5, y: -86.5}
-        - {x: 75.5, y: -86.5}
-        - {x: 86.5, y: -84.5}
-        - {x: 86.5, y: 86.5}
-    - name: RewardIcons_28
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65305410000000000800000000000000
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_28
       rect:
         serializedVersion: 2
         x: 740
@@ -650,17 +762,18 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -46.5, y: 86.5}
-        - {x: -79.5, y: 57.5}
-        - {x: -86.5, y: 32.5}
-        - {x: -86.5, y: -39.5}
-        - {x: -82.5, y: -60.5}
-        - {x: -39.5, y: -86.5}
-        - {x: 75.5, y: -86.5}
-        - {x: 86.5, y: -84.5}
-        - {x: 86.5, y: 86.5}
-    - name: RewardIcons_29
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85305410000000000800000000000000
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RewardIcons_29
       rect:
         serializedVersion: 2
         x: 920
@@ -670,18 +783,29 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline:
-      - - {x: -46.5, y: 86.5}
-        - {x: -79.5, y: 57.5}
-        - {x: -86.5, y: 32.5}
-        - {x: -86.5, y: -39.5}
-        - {x: -82.5, y: -60.5}
-        - {x: -39.5, y: -86.5}
-        - {x: 75.5, y: -86.5}
-        - {x: 86.5, y: -84.5}
-        - {x: 86.5, y: 86.5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5305410000000000800000000000000
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
   spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

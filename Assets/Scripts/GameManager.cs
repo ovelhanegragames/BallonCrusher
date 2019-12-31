@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using PlayFab;
+using PlayFab.ClientModels;
 
 public class GameManager : MonoBehaviour {
 
@@ -99,7 +101,9 @@ public class GameManager : MonoBehaviour {
         }
         else if (gameState.Equals("gameover"))
         {
+            gameState = "waiting";
             gameOver.SetActive(true);
+            SendScoreToRanking();
         }
 	}
 
@@ -174,5 +178,32 @@ public class GameManager : MonoBehaviour {
         ready = false;
         yield return new WaitForSeconds(sleep - levelSleep);
         ready = true;
+    }
+
+    public void SendScoreToRanking()
+    {
+        if (LoginManager.LoginData.playIsLogin)
+        {
+            List<StatisticUpdate> statistic = new List<StatisticUpdate>();
+            statistic.Add(new StatisticUpdate()
+            {
+                StatisticName = "Score",
+                Value = score
+            });
+
+            UpdatePlayerStatisticsRequest request = new UpdatePlayerStatisticsRequest();
+            request.Statistics = statistic;
+            PlayFabClientAPI.UpdatePlayerStatistics(request, this.DataUpdateSuccess, this.OnError);
+        }
+    }
+
+    private void DataUpdateSuccess(UpdatePlayerStatisticsResult result)
+    {
+        Debug.Log("Success");
+    }
+
+    public void OnError(PlayFabError error)
+    {
+        Debug.LogError(error.ErrorMessage);
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using PlayFab;
+using PlayFab.ClientModels;
 
 public class Rank : MonoBehaviour {
 
@@ -12,8 +14,6 @@ public class Rank : MonoBehaviour {
     GameObject gm;
     GameObject cb;
     GameObject dbr;
-    string nameCurrentPlayer;
-
 
     // Use this for initialization
     void Start () {
@@ -35,39 +35,8 @@ public class Rank : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
-
-    //cria um objeto do tipo player com os dados da respectiva partida e adiciona na lista de rank
-    public void GetPlayerName()
-    {
-        dbr.GetComponent<DB_Rank>().playerList[5] = MakePlayer();
-        dbr.GetComponent<DB_Rank>().ArrangePlayerRank();
-        PrintPlayerInfos(SearchPlayer());
-        dbr.GetComponent<DB_Rank>().SaveList();
-
-        for (int i = 0; i < dbr.GetComponent<DB_Rank>().playerList.Length - 1; i++)
-        {
-            print(dbr.GetComponent<DB_Rank>().playerList[i].Position.ToString());
-            print(dbr.GetComponent<DB_Rank>().playerList[i].Nome);
-            print(dbr.GetComponent<DB_Rank>().playerList[i].Score.ToString());
-        }
-
-    }
-
-    private Player MakePlayer()
-    {
-        Player pl = new Player();
-        pl.Nome = playerName.transform.GetChild(2).gameObject.GetComponent<Text>().text;
-        pl.NumberMaxCombo = cb.GetComponent<Combo>().comboCountMax;
-        pl.MaxLevel = gm.GetComponent<GameManager>().level;
-        pl.Score = gm.GetComponent<GameManager>().score;
-
-        nameCurrentPlayer = pl.Nome;
-
-        return pl;
-    }
-
 
     public void PrintPlayerInfos(Player currentPlayer)
     {
@@ -91,31 +60,4 @@ public class Rank : MonoBehaviour {
         }
 
     }
-
-    public Player SearchPlayer()
-    {
-        //compara o nome do jogador da list para devolver seu rank
-        //foreach (Player p in dbr.GetComponent<DB_Rank>().playerList)
-       // {
-        //    if (p.Nome.Equals(nameCurrentPlayer))
-        //    {
-        //        return p;
-        //    }
-       // }
-
-        for (int i = 0; i < dbr.GetComponent<DB_Rank>().playerList.Length - 1; i++)
-        {
-            if (dbr.GetComponent<DB_Rank>().playerList[i].Nome.Equals(nameCurrentPlayer))
-            {
-                if(dbr.GetComponent<DB_Rank>().playerList[i].Score == gm.GetComponent<GameManager>().score)
-                {
-                    return dbr.GetComponent<DB_Rank>().playerList[i];
-                }
-                
-            }
-        }
-            return null;
-    }
-
-
 }
