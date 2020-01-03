@@ -59,23 +59,15 @@ public class LoginManager : MonoBehaviour
 
     public void Register()
     {
-        LoginData.username = username.text;
-        LoginData.password = password.text;
-        //loginData = new LoginData()
-        //{
-        //    username = username.text,
-        //    password = password.text
-        //};
-
         if (!string.IsNullOrEmpty(username.text) && !string.IsNullOrEmpty(password.text) && mouseCanClick)
         {
             mouseCanClick = false;
             RegisterPlayFabUserRequest request = new RegisterPlayFabUserRequest()
             {
-                Username = LoginData.username,
-                Password = LoginData.password,
-                Email = LoginData.username + "@gmail.com",
-                DisplayName = LoginData.username
+                Username = username.text,
+                Password = password.text,
+                Email = username.text + "@gmail.com",
+                DisplayName = username.text
             };
             PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnError);
         }
@@ -90,21 +82,13 @@ public class LoginManager : MonoBehaviour
 
     public void Login()
     {
-        LoginData.username = username.text;
-        LoginData.password = password.text;
-        //loginData = new LoginData()
-        //{
-        //    username = username.text,
-        //    password = password.text
-        //};
-
         if (!string.IsNullOrEmpty(username.text) && !string.IsNullOrEmpty(password.text) && mouseCanClick)
         {
             mouseCanClick = false;
             LoginWithPlayFabRequest request = new LoginWithPlayFabRequest()
             {
-                Username = LoginData.username,
-                Password = LoginData.password
+                Username = username.text,
+                Password = password.text
             };
 
             PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnError);
@@ -114,6 +98,7 @@ public class LoginManager : MonoBehaviour
     public void OnLoginSuccess(LoginResult result)
     {
         mouseCanClick = true;
+        LoginData.playfabId = result.PlayFabId;
         Debug.Log("Logado");
         LoginData.playIsLogin = true;
         SceneManager.LoadScene("Menu");
@@ -164,8 +149,7 @@ public class LoginManager : MonoBehaviour
 
     public static class LoginData
     {
-        public static string username;
-        public static string password;
+        public static string playfabId;
         public static bool playIsLogin = false;
     }
 }

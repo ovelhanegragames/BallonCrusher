@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
 
     public List<GameObject> listOfBalloons = new List<GameObject>();
     public List<GameObject> listOfGenerators = new List<GameObject>();
+    public GameObject playerStatistics;
     public GameObject scoreLabel;
     public GameObject levelLabel;
     public GameObject coinsLabel;
@@ -30,12 +31,14 @@ public class GameManager : MonoBehaviour {
     public string gameState = "play";
     int bombBalloonCount = 0;
     public int bombBalloonRef;
-
     public bool isKids;
     public bool starBlock = false;
 
 	// Use this for initialization
 	void Start () {
+        gameOver.transform.GetChild(2).gameObject.SetActive(false);
+        gameOver.transform.GetChild(4).gameObject.SetActive(false);
+        playerStatistics.SetActive(false);
         numberOffBalloons = endOfTheGame;
         if (isKids)
         {
@@ -195,15 +198,55 @@ public class GameManager : MonoBehaviour {
             request.Statistics = statistic;
             PlayFabClientAPI.UpdatePlayerStatistics(request, this.DataUpdateSuccess, this.OnError);
         }
+        else
+        {
+            ShowLocalStatistics();
+        }
     }
 
     private void DataUpdateSuccess(UpdatePlayerStatisticsResult result)
     {
         Debug.Log("Success");
+        GetPlayerPositionOnLeadbord();
     }
 
     public void OnError(PlayFabError error)
     {
         Debug.LogError(error.ErrorMessage);
+    }
+
+    public void GetPlayerPositionOnLeadbord()
+    {
+        GetLeaderboardAroundPlayerRequest request = new GetLeaderboardAroundPlayerRequest();
+        request.PlayFabId = LoginManager.LoginData.playfabId;
+        request.StatisticName = "Score";
+        request.MaxResultsCount = 1;
+        PlayFabClientAPI.GetLeaderboardAroundPlayer(request, this.OnPlayerLeaderBoardResult, this.OnError);
+    }
+
+    public void OnPlayerLeaderBoardResult(GetLeaderboardAroundPlayerResult result)
+    {
+        playerStatistics.SetActive(true);
+        foreach (var s in result.Leaderboard)
+        {
+            playerStatistics.GetComponent<Text>().text = s.DisplayName;
+            playerStatistics.transform.GetChild(0).gameObject.GetComponent<Text>().text =
+                "Position:........" + (s.Position + 1) + "\n" +
+                "Score:..........." + s.StatValue + "\n" +
+                "Level:..........." + level;
+        }
+        gameOver.transform.GetChild(2).gameObject.SetActive(true);
+        gameOver.transform.GetChild(4).gameObject.SetActive(true);
+    }
+
+    private void ShowLocalStatistics()
+    {
+        playerStatistics.GetComponent<Text>().text = "";
+        playerStatistics.transform.GetChild(0).gameObject.GetComponent<Text>().text =
+            "Score:..........." + score + "\n" +
+            "Level:..........." + level;
+
+        gameOver.transform.GetChild(2).gameObject.SetActive(true);
+        gameOver.transform.GetChild(4).gameObject.SetActive(true);
     }
 }
