@@ -123,13 +123,13 @@ public class Combo : MonoBehaviour {
             bonus = 1f;
         }
 
+
         //grava numero maximo de combos 
         if (comboCount > comboCountMax) comboCountMax = comboCount;
         comboIsActive = false;
         comboCount = 0;
         score = (Mathf.RoundToInt(scoreCombo *= bonus));
         StartBonusAnimation();
-
     }
 
     public void StartCombo()
@@ -140,11 +140,8 @@ public class Combo : MonoBehaviour {
 
     public void StartBonusAnimation()
     {
-
         bonusScore.SetActive(true);
         bonusScore.GetComponent<Text>().text = "+" + score.ToString();
-
-
         bonusScore.GetComponent<Animator>().SetTrigger("start");
     }
 

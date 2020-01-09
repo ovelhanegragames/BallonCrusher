@@ -56,10 +56,10 @@ public class PopBalloon : MonoBehaviour {
                     {
                         hit.transform.parent.gameObject.GetComponent<Balloon>().CheckBallon(hit.transform.parent.gameObject);
                     }
-                    else
-                    {
-                        wt.SendMessage("BonusScoreCombo");
-                    }
+                }
+                else
+                {
+                    wt.GetComponent<Combo>().BonusScoreCombo();
                 }
             }
 

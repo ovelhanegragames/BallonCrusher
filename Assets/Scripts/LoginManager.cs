@@ -13,8 +13,14 @@ public class LoginManager : MonoBehaviour
     public Text username;
     public Text password;
     public Text warningMessage;
+    public Text welcomeText;
+    public Button continueButton;
+    public Button noLoginButton;
     public static LoginManager instance = null;
     private bool mouseCanClick = true;
+
+    private int hasLoginOneTime = 0;
+    private string playerLoginName = string.Empty;
 
     private void Awake()
     {
@@ -35,12 +41,37 @@ public class LoginManager : MonoBehaviour
 
         username.text = string.Empty;
         password.text = string.Empty;
+
+        welcomeText.gameObject.SetActive(false);
+        continueButton.gameObject.SetActive(false);
+        noLoginButton.gameObject.SetActive(false);
+        username.transform.parent.gameObject.SetActive(false);
+
+
+        hasLoginOneTime = PlayerPrefs.GetInt("login", 0);
+        playerLoginName = PlayerPrefs.GetString("username", string.Empty);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        //TODO
+        //remove de ongTest for release
+        //if (hasLoginOneTime == 1 && !playerLoginName.Equals("ongTest"))
+        if (hasLoginOneTime == 1)
+        {
+            //TODO
+            //Make login with username load from playerpref
+            welcomeText.gameObject.SetActive(true);
+            welcomeText.text = "Hi, " + playerLoginName + "\n\n" + "Wait for a moment";
+            SimpleLogin(playerLoginName);
+        }
+        else
+        {
+            welcomeText.gameObject.SetActive(true);
+            continueButton.gameObject.SetActive(true);
+            username.transform.parent.gameObject.SetActive(true);
+        }
     }
 
     // Update is called once per frame
@@ -59,13 +90,17 @@ public class LoginManager : MonoBehaviour
 
     public void Register()
     {
-        if (!string.IsNullOrEmpty(username.text) && !string.IsNullOrEmpty(password.text) && mouseCanClick)
+        //if (!string.IsNullOrEmpty(username.text) && !string.IsNullOrEmpty(password.text) && mouseCanClick)
+        if (!string.IsNullOrEmpty(username.text))
         {
+            continueButton.enabled = false;
+            continueButton.gameObject.SetActive(false);
+            welcomeText.text = "Wait while we prepare everything.";
             mouseCanClick = false;
             RegisterPlayFabUserRequest request = new RegisterPlayFabUserRequest()
             {
                 Username = username.text,
-                Password = password.text,
+                Password = username.text,
                 Email = username.text + "@gmail.com",
                 DisplayName = username.text
             };
@@ -77,29 +112,46 @@ public class LoginManager : MonoBehaviour
     {
         Debug.Log("Register Success");
         mouseCanClick = true;
-        Login();
+
+        PlayerPrefs.SetString("username", username.text);
+        PlayerPrefs.SetInt("login", 1);
+
+        SimpleLogin(username.text);
     }
 
     public void Login()
     {
-        if (!string.IsNullOrEmpty(username.text) && !string.IsNullOrEmpty(password.text) && mouseCanClick)
+        //if (!string.IsNullOrEmpty(username.text) && !string.IsNullOrEmpty(password.text) && mouseCanClick)
+        if (!string.IsNullOrEmpty(username.text))
         {
             mouseCanClick = false;
             LoginWithPlayFabRequest request = new LoginWithPlayFabRequest()
             {
                 Username = username.text,
-                Password = password.text
+                Password = username.text
             };
-
             PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnError);
         }
     }
 
+    public void SimpleLogin(string user)
+    {
+        mouseCanClick = false;
+        LoginWithPlayFabRequest request = new LoginWithPlayFabRequest()
+        {
+            Username = user,
+            Password = user
+        };
+
+        PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnError);
+    }
+
     public void OnLoginSuccess(LoginResult result)
     {
-        mouseCanClick = true;
-        LoginData.playfabId = result.PlayFabId;
         Debug.Log("Logado");
+        mouseCanClick = true;
+
+        LoginData.playfabId = result.PlayFabId;
         LoginData.playIsLogin = true;
         SceneManager.LoadScene("Menu");
     }
@@ -107,6 +159,9 @@ public class LoginManager : MonoBehaviour
     public void OnError(PlayFabError error)
     {
         mouseCanClick = true;
+        noLoginButton.gameObject.SetActive(true);
+        continueButton.gameObject.SetActive(true);
+        username.transform.parent.gameObject.SetActive(true);
         Debug.LogError(error.ErrorMessage);
         StartCoroutine(ShowWarningMessage(error.ErrorMessage));
     }
