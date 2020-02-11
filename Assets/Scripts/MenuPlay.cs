@@ -11,6 +11,7 @@ public class MenuPlay : MonoBehaviour {
     public GameObject sliderEffects;
     public GameObject noBgm;
     public GameObject noEffects;
+    public GameObject mainMenu;
 
     GameObject gm;
     GameObject om;
@@ -164,8 +165,15 @@ public class MenuPlay : MonoBehaviour {
     public void OpenMenu()
     {
         settingsPanel.SetActive(true);
+        mainMenu.SetActive(false);
         if (bgmVolume == 0) bgmActive = false;
         if (effectsVolume == 0) effectsActive = false;
+    }
+
+    public void BackToMainMenu()
+    {
+        mainMenu.SetActive(true);
+        settingsPanel.SetActive(false);
     }
 
 }

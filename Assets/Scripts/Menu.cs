@@ -11,6 +11,7 @@ public class Menu : MonoBehaviour {
     public GameObject rankPanel;
     public GameObject rankName;
     public GameObject rankScore;
+    public GameObject mainMenu;
     public GameObject playerStatistics;
 
     // Use this for initialization
@@ -38,6 +39,7 @@ public class Menu : MonoBehaviour {
         if (LoginManager.LoginData.playIsLogin)
         {
             rankPanel.SetActive(true);
+            mainMenu.SetActive(false);
             RequestLeaderboard();
         }
         else
@@ -45,6 +47,12 @@ public class Menu : MonoBehaviour {
             //TODO
             //Aviso para informar que sem login não acessa ranking
         }
+    }
+
+    public void BackToMainMenu()
+    {
+        mainMenu.SetActive(true);
+        rankPanel.SetActive(false);
     }
 
     public void PlayKids()
