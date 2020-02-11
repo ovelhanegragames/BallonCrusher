@@ -176,4 +176,8 @@ public class MenuPlay : MonoBehaviour {
         settingsPanel.SetActive(false);
     }
 
+    public void CloseApp()
+    {
+        Application.Quit();
+    }
 }
