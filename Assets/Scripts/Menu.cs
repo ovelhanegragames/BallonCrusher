@@ -13,6 +13,7 @@ public class Menu : MonoBehaviour {
     public GameObject rankScore;
     public GameObject mainMenu;
     public GameObject playerStatistics;
+    public GameObject howToPlay;
 
     // Use this for initialization
     void Start () {
@@ -49,10 +50,17 @@ public class Menu : MonoBehaviour {
         }
     }
 
+    public void OpenHowYoPlay()
+    {
+        howToPlay.SetActive(true);
+        mainMenu.SetActive(false);
+    }
+
     public void BackToMainMenu()
     {
         mainMenu.SetActive(true);
         rankPanel.SetActive(false);
+        howToPlay.SetActive(false);
     }
 
     public void PlayKids()
