@@ -57,8 +57,8 @@ public class LoginManager : MonoBehaviour
     {
         //TODO
         //remove de ongTest for release
-        //if (hasLoginOneTime == 1 && !playerLoginName.Equals("ongTest"))
-        if (hasLoginOneTime == 1)
+        if (hasLoginOneTime == 1 && !playerLoginName.Equals("ongTest"))
+        //if (hasLoginOneTime == 1)
         {
             //TODO
             //Make login with username load from playerpref
@@ -93,8 +93,8 @@ public class LoginManager : MonoBehaviour
         //if (!string.IsNullOrEmpty(username.text) && !string.IsNullOrEmpty(password.text) && mouseCanClick)
         if (!string.IsNullOrEmpty(username.text))
         {
-            continueButton.enabled = false;
-            continueButton.gameObject.SetActive(false);
+            continueButton.transform.gameObject.SetActive(false);
+            noLoginButton.gameObject.SetActive(false);
             welcomeText.text = "Wait while we prepare everything.";
             mouseCanClick = false;
             RegisterPlayFabUserRequest request = new RegisterPlayFabUserRequest()
@@ -159,8 +159,9 @@ public class LoginManager : MonoBehaviour
     public void OnError(PlayFabError error)
     {
         mouseCanClick = true;
+        welcomeText.text = "Sorry choose another username";
+        continueButton.transform.gameObject.SetActive(true);
         noLoginButton.gameObject.SetActive(true);
-        continueButton.gameObject.SetActive(true);
         username.transform.parent.gameObject.SetActive(true);
         Debug.LogError(error.ErrorMessage);
         StartCoroutine(ShowWarningMessage(error.ErrorMessage));
